@@ -20,7 +20,7 @@ FLAGS NECESSÁRIAS PARA O COMPILADOR/LINKADOR -> -lallegro -lallegro_image -lall
 
 using namespace std;
 
-const float FPS = 0.4;
+const float FPS = 1;
 const int SCREEN_W = 500;
 const int SCREEN_H = 550;
 const int QUAD_SIZE = 20;
@@ -31,33 +31,33 @@ enum MYKEYS
 };
 
 //matriz definindo mapa do jogo: 1 representa paredes, 0 representa corredor
-char MAPA[26][26] =
+char MAPA[52][52] =
 {
-    "2222222222222222222222222",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2000000000000000000000002",
-    "2222222222222222222222222",
+    "22222222222222222222222222222222222222222222222222",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "20000000000000000000000000000000000000000000000002",
+    "22222222222222222222222222222222222222222222222222",
 };
 
 int andou[26][26] = {0};
@@ -204,8 +204,11 @@ int inicializa() {
 
 int main(int argc, char **argv)
 {
-	bool morre[26][26] = {false};
-    bool vive[26][26] = {true};
+	bool morre[51][51] = {false};
+    bool vive[51][51] = {true};
+    bool doisvive[51][51] = {false};
+    bool revive[51][51] = {false};
+    bool revivenaprox[51][51] = {false};
     srand(time(NULL));
 	if(!inicializa()) return -1;
     int geracao = -1;
@@ -223,16 +226,16 @@ int main(int argc, char **argv)
             if(geracao == 0){
                 int celRand = 0;
                 int coluna, linha = 0;
-                for(int i = 1; i<25;i++){
-                    for(int j = 1; j<25;j++){
+                for(int i = 1; i<51;i++){
+                    for(int j = 1; j<51;j++){
                         if(((rand()%2)==1 && MAPA[i][j]!='2')){
                             MAPA[i][j] = '1';
                         }
                     }
                 }
-                for(int i = 0;i<26;i++){
-                    for(int j = 0;j<26;j++){
-                        if(j==25){
+                for(int i = 0;i<52;i++){
+                    for(int j = 0;j<52;j++){
+                        if(j==51){
                             cout << MAPA[j][i];
                             cout << '\n';
                              
@@ -247,8 +250,45 @@ int main(int argc, char **argv)
             
             if(geracao>=1){
                 int vizinhos = 0;
-                for(int i=1;i<25;i++){
-                    for(int j = 1;j<25;j++){
+                for(int i=1;i<51;i++){
+                    for(int j = 1;j<51;j++){
+                        revive[i][j] = revivenaprox[i][j];
+                        revivenaprox[i][j] = false;
+
+                    }
+                }
+                for(int i=1;i<51;i++){
+                    for(int j = 1;j<51;j++){
+                        if(MAPA[i][j]=='0'){
+                            if(MAPA[i+1][j]=='1'){
+                                        vizinhos++;
+                                    }
+                                    if(MAPA[i+1][j+1]=='1'){
+                                        vizinhos++;
+                                    }
+                                    if(MAPA[i+1][j-1]=='1'){
+                                        vizinhos++;
+                                    }
+                                    if(MAPA[i-1][j+1]=='1'){
+                                        vizinhos++;
+                                    }
+                                    if(MAPA[i-1][j]=='1'){
+                                        vizinhos++;
+                                    }
+                                    if(MAPA[i-1][j-1]=='1'){
+                                        vizinhos++;
+                                    }
+                                    if(MAPA[i][j+1]=='1'){
+                                        vizinhos++;
+                                    }
+                                    if(MAPA[i][j-1]=='1'){
+                                        vizinhos++;
+                                    }
+                                    if(vizinhos==3){
+                                        revive[i][j]=true;
+                                    }
+                                    vizinhos = 0;
+                        }
                             if(MAPA[i][j]=='1'){
                                 if(vive){
                                     if(MAPA[i+1][j]=='1'){
@@ -275,33 +315,70 @@ int main(int argc, char **argv)
                                     if(MAPA[i][j-1]=='1'){
                                         vizinhos++;
                                     }
-                                    
-                                    if(vizinhos>=3){
+                                    if(vizinhos>3){
                                         morre[i][j]=true;
-                                        
-                                    }else{
-                                        vive[i][j]=true;
-                                        
+                                        vive[i][j]=false;
+                                    }
+
+                                    //if(vizinhos==3){
+                                    //    
+                                    //    vive[i][j] = false;
+                                    //    revivenaprox[i][j]=true;
+                                    //    
+                                    //}
+                                    if(vizinhos == 2){
+                                        morre[i][j]=false;
+                                        //int rando = rand() % 8;
+                                        //switch(rando){
+                                        //    case 0:
+                                        //        MAPA[i][j-1]='1';
+                                        //        break;
+                                        //    case 1:
+                                        //        MAPA[i][j+1]='1';
+                                        //        break;
+                                        //    case 2:
+                                        //        MAPA[i+1][j+1]='1';
+                                        //        break;
+                                        //    case 3:
+                                        //        MAPA[i+1][j-1]='1';
+                                        //        break;
+                                        //    case 4:
+                                        //        MAPA[i-1][j]='1';
+                                        //        break;
+                                        //    case 5:
+                                        //        MAPA[i-1][j-1]='1';
+                                        //        break;
+                                        //    case 6:
+                                        //        MAPA[i-1][j+1]='1';
+                                        //        break;
+                                        //    case 7:
+                                        //        MAPA[i+1][j]='1';
+                                        //        break;
+                                        //}
+                                    }
+                                    if(vizinhos==1){
+                                        morre[i][j]=true;
                                     }
                                     vizinhos = 0;
-
                                 }
                         }
                     }
                 }
 
-                for(int i = 1;i<26;i++){
-                    for(int j = 1;j<26;j++){
+                for(int i = 1;i<51;i++){
+                    for(int j = 1;j<51;j++){
                         if(morre[i][j]){
                             MAPA[i][j]='0';
                         }
-                        if(vive[i][j]='1');
+                        if(revive[i][j]==true){
+                            MAPA[i][j]='1';
+                        }
                         
                     }
                 }
-                for(int i = 0;i<26;i++){
-                    for(int j = 0;j<26;j++){
-                        if(j==25){
+                for(int i = 0;i<52;i++){
+                    for(int j = 0;j<52;j++){
+                        if(j==51){
                             cout << MAPA[j][i] << endl;
                         }
                         else{
@@ -334,10 +411,10 @@ int main(int argc, char **argv)
 			//al_draw_bitmap(power_up, HRand*q, WRand*q, 0);		    //redesenha comida nas coordenardas aleatorias
 
 
-            for(int l=1;l<25;l++){
-				for(int p=1;p<25;p++){
+            for(int l=1;l<51;l++){
+				for(int p=1;p<51;p++){
                     if(MAPA[l][p]=='1'){
-                        al_draw_bitmap(power_up, l*20, p*20, 0);
+                        al_draw_bitmap(power_up, l*10, p*10, 0);
                     }
 				}
 			}
