@@ -21,7 +21,7 @@ FLAGS NECESSÁRIAS PARA O COMPILADOR/LINKADOR -> -lallegro -lallegro_image -lall
 using namespace std;
 
 
-float FPS = 3;
+float FPS = 3.2;
 int SCREEN_W = 500;
 int SCREEN_H = 550;
 const int QUAD_SIZE = 20;
@@ -88,12 +88,13 @@ char MAPA[52][52] =
     "222222222222222222222222222222222222222222222222222"
 };
 
+
 int andou[26][26] = {0};
 int andouCorpo[26][26] = {0};
 int passo = 0;
 
-ALLEGRO_COLOR *cor = NULL;        // Ponteiro de COR para a fonte
-ALLEGRO_FONT *font = NULL;        // Ponteiro de FONTE para inicializar o objeto
+ALLEGRO_COLOR *cor = NULL;  
+ALLEGRO_FONT *font = NULL;       
 ALLEGRO_DISPLAY *display = NULL;
 ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 ALLEGRO_TIMER *timer = NULL;
@@ -106,14 +107,7 @@ ALLEGRO_BITMAP *power_up2 = NULL;
 
 int i = 15, j = 12;   //posicao inicial do Pacman na matriz
 int q = 20;           //tamanho de cada celula no mapa
-int posy = i*q;
-int posx = j*q;
-int tamanho = 2;
-int tamanho_corpo = 1;
 int contador = 0;     //contador de tempo
-int HRand, WRand;     
-int HRand1, WRand1;   
-int HRand2, WRand2;   
 int *timer1;
 
 bool key[4] = { false, false, false, false };
@@ -122,6 +116,8 @@ bool sprite = false;
 bool power_up_tamanho = true;
 bool sair = false;
 bool cima, baixo, esq, dir;
+
+const char * texto = {"Geração: "};
 
 void CLEAR(){                   
     system("CLS");		//limpar tela
@@ -185,7 +181,6 @@ int inicializa() {
         al_destroy_display(display);
         return 0;
     }
-    al_draw_bitmap(pacman,posx,posy,0);
     power_up = al_load_bitmap("MeatSmall3.bmp");
     if(!power_up)
     {
@@ -220,6 +215,7 @@ int inicializa() {
     al_init_font_addon();    // INICIALIZAR AS FUNÇÕES DE FONTE 
     al_init_ttf_addon();     // INICIALIZAR ESTE ADDON -APÓS- INICIALIZAR O font_addon
     font = al_load_ttf_font("Starjedi.ttf", 26, 0);  // carrega arquivo ttf para formato da fonte
+    
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_keyboard_event_source());
@@ -347,43 +343,9 @@ int main(int argc, char **argv)
                                         morre[i][j]=true;
                                         vive[i][j]=false;
                                     }
-
-                                    //if(vizinhos==3){
-                                    //    
-                                    //    vive[i][j] = false;
-                                    //    revivenaprox[i][j]=true;
-                                    //    
-                                    //}
                                     if(vizinhos == 2){
                                         morre[i][j]=false;
                                         vive[i][j]=true;
-                                        //int rando = rand() % 8;
-                                        //switch(rando){
-                                        //    case 0:
-                                        //        MAPA[i][j-1]='1';
-                                        //        break;
-                                        //    case 1:
-                                        //        MAPA[i][j+1]='1';
-                                        //        break;
-                                        //    case 2:
-                                        //        MAPA[i+1][j+1]='1';
-                                        //        break;
-                                        //    case 3:
-                                        //        MAPA[i+1][j-1]='1';
-                                        //        break;
-                                        //    case 4:
-                                        //        MAPA[i-1][j]='1';
-                                        //        break;
-                                        //    case 5:
-                                        //        MAPA[i-1][j-1]='1';
-                                        //        break;
-                                        //    case 6:
-                                        //        MAPA[i-1][j+1]='1';
-                                        //        break;
-                                        //    case 7:
-                                        //        MAPA[i+1][j]='1';
-                                        //        break;
-                                        //}
                                     }
                                     if(vizinhos==1 || vizinhos==0){
                                         morre[i][j]=true;
@@ -416,13 +378,7 @@ int main(int argc, char **argv)
                         
                     }
                 }
-            }
-            
-        //sortear novas coordenardas para 'a' (comida padrão)
-            //if(MAPA[i][j] == '1') 	//localiza o 'a' na matriz
-			//{ 
-            //}
-        //sortear novas coordenardas para 'b' (comida especial 1)			
+            }		
             redraw = true;
             
         }
@@ -437,7 +393,6 @@ int main(int argc, char **argv)
             redraw = false;
             al_clear_to_color(al_map_rgb(0,0,0));
             al_draw_bitmap(mapa,0,0,0);
-			//al_draw_bitmap(power_up, HRand*q, WRand*q, 0);		    //redesenha comida nas coordenardas aleatorias
 
 
             for(int l=1;l<51;l++){
@@ -447,6 +402,8 @@ int main(int argc, char **argv)
                     }
 				}
 			}
+            al_draw_textf(font, al_map_rgb(255,0,0),165,500, 0, texto);
+            al_draw_textf(font, al_map_rgb(255,0,0),310,500, 0, "%d", geracao);
 			al_flip_display();
 		}
 	}
