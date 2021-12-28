@@ -496,7 +496,7 @@ int main(int argc, char **argv)
                                         morre[i][j]=true;
                                         vive[i][j]=false;
                                     }
-                                    if(vizinhos == 2){
+                                    if(vizinhos == 2 || vizinhos == 3){
                                         morre[i][j]=false;
                                         vive[i][j]=true;
                                     }
