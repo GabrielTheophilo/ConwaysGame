@@ -1,10 +1,12 @@
 # Conway's Game of Life
 https://pt.wikipedia.org/wiki/Jogo_da_vida
 
+**TO DO's**:
+1. Editar a fonte
+2. Criar um makefile
+3. Adicionar menu inicial
+4. Modularizar os sprites e regras em objetos
+5. Integrar todas as variantes num programa só, após criar o menu
 
-#TODO:
-X - Editar a fonte
-X - Criar um makefile
-1 - Adicionar menu inicial
-2 - Modularizar os sprites e regras em objetos
-3 - Integrar todas as variantes num programa só, após criar o menu
+**Screenshots**
+![Conway's](https://imgur.com/gallery/BwzNw5F)
