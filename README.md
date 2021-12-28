@@ -9,4 +9,4 @@ https://pt.wikipedia.org/wiki/Jogo_da_vida
 5. Integrar todas as variantes num programa só, após criar o menu
 
 **Screenshots**
-![Conway's](https://imgur.com/gallery/BwzNw5F)
+![Conway's](https://i.imgur.com/dNhyYSJ.png)
