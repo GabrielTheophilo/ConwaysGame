@@ -21,7 +21,7 @@ FLAGS NECESSÁRIAS PARA O COMPILADOR/LINKADOR -> -lallegro -lallegro_image -lall
 using namespace std;
 
 
-float FPS = 6.4;
+float FPS = 7.1;
 int SCREEN_W = 1000;
 int SCREEN_H = 1000;
 
@@ -418,7 +418,7 @@ int main(int argc, char **argv)
                 int coluna, linha = 0;
                 for(int i = 1; i<259;i++){
                     for(int j = 1; j<259;j++){
-                        if(((rand()%2)==1 && MAPA[i][j]!='2')){
+                        if(((rand()%8)==1 && MAPA[i][j]!='2')){
                             MAPA[i][j] = '1';
                         }
                     }
