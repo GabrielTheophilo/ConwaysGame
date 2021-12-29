@@ -461,8 +461,7 @@ int main(int argc, char **argv)
                                     if(MAPA[i][j-1]=='1'){
                                         vizinhos++;
                                     }
-                                    // b3
-                                    if(vizinhos==3){
+                                    if(vizinhos==3 ){
                                         revive[i][j]=true;
                                     }
                                     vizinhos = 0;
@@ -496,14 +495,6 @@ int main(int argc, char **argv)
                                     if(vizinhos>3){
                                         morre[i][j]=true;
                                         vive[i][j]=false;
-                                    }
-                                    //s23
-                                    if(vizinhos == 2 || vizinhos == 3){
-                                        morre[i][j]=false;
-                                        vive[i][j]=true;
-                                    }
-                                    if(vizinhos==1 || vizinhos==0){
-                                        morre[i][j]=true;
                                     }
                                     vizinhos = 0;
                                 }
