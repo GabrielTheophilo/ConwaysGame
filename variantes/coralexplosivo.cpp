@@ -21,7 +21,7 @@ FLAGS NECESSÁRIAS PARA O COMPILADOR/LINKADOR -> -lallegro -lallegro_image -lall
 using namespace std;
 
 
-float FPS = 10.1;
+float FPS = 7.1;
 int SCREEN_W = 1000;
 int SCREEN_H = 1000;
 
@@ -416,8 +416,8 @@ int main(int argc, char **argv)
             if(geracao == 0){
                 int celRand = 0;
                 int coluna, linha = 0;
-                for(int i = 29; i<219;i++){
-                    for(int j = 29; j<219;j++){
+                for(int i = 38; i<219;i++){
+                    for(int j = 38; j<219;j++){
                         if(((rand()%2)==1 && MAPA[i][j]!='2')){
                             MAPA[i][j] = '1';
                         }
@@ -461,7 +461,8 @@ int main(int argc, char **argv)
                                     if(MAPA[i][j-1]=='1'){
                                         vizinhos++;
                                     }
-                                    if(vizinhos==3||vizinhos==6){
+                                    // b3
+                                    if(vizinhos==3){
                                         revive[i][j]=true;
                                     }
                                     vizinhos = 0;
@@ -492,11 +493,12 @@ int main(int argc, char **argv)
                                     if(MAPA[i][j-1]=='1'){
                                         vizinhos++;
                                     }
-                                    if(vizinhos>3){
+                                    if(vizinhos==3 || vizinhos ==2){
                                         morre[i][j]=true;
                                         vive[i][j]=false;
                                     }
-                                    if(vizinhos == 2 || vizinhos == 3){
+                                    //s23
+                                    if(vizinhos == 4 || vizinhos == 5 || vizinhos ==6 || vizinhos ==7 || vizinhos == 8){
                                         morre[i][j]=false;
                                         vive[i][j]=true;
                                     }
