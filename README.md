@@ -1,6 +1,6 @@
 # Conway's Game of Life
 
-Hey, if you are looking for the README in ENGLISH, please visit the [README_EN-US.md] (https://github.com/GabrielTheophilo/ConwaysGame/blob/main/README_EN-US.md) file, it has all the information you need. Have a great day :)
+Hey, if you are looking for the README in ENGLISH, please visit the README_EN-US.md file, it has all the information you need. Have a great day :)
 
 https://pt.wikipedia.org/wiki/Jogo_da_vida
 
