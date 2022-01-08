@@ -1,5 +1,4 @@
-# Conway's Game of Life 🚀
-![Conway's Game](https://i.imgur.com/wwp6Paw.png)
+# [Conway's Game of Life 🚀](https://i.imgur.com/cw42u24.png)
 
 <h2>Hey, if you are looking for the README in ENGLISH, please visit the README_EN-US.md file, it has all the information you need. Have a great day</h2>
 
@@ -15,26 +14,27 @@ E é assim que funciona:
 
 Como rodar o jogo:
 
--Você pode baixar os binários do projeto e executar em sua máquina acessando a página de [Releases](https://github.com/GabrielTheophilo/ConwaysGame/releases/tag/v0.0.1-alpha) e baixando o arquivo release.zip contendo o executável e os arquivos necessários para rodar o programa
+Você pode baixar os binários do projeto e executar em sua máquina acessando a página de [Releases](https://github.com/GabrielTheophilo/ConwaysGame/releases/tag/v0.0.1-alpha) e baixando o arquivo release.zip contendo o executável e os arquivos necessários para rodar o programa
 
--Você pode compilar a partir da fonte, e rodar o executável gerado a partir disso
+Você pode compilar a partir da fonte, e rodar o executável gerado a partir disso
 
 Como compilar o programa:
 1. Baixe a biblioteca [Allegro5](https://liballeg.org/) e adicione-a ao PATH de sua máquina
 2. Clone o repositório:
 ```console
-foo@bar:~$ git clone https://github.com/GabrielTheophilo/ConwaysGame.git
+git clone https://github.com/GabrielTheophilo/ConwaysGame.git
 ```
 3. Entre na pasta criada
 ```console
-foo@bar:~$ cd ConwaysGame
+cd ConwaysGame
 ```
 4. Com o compilador instalado, invoque o comando
 ```console
-foo@bar:~$ gcc -o conwaysgame.exe conways_game.cpp -lallegro -lallegro_image -lallegro_font -lallegro_ttf
+gcc -o conwaysgame.exe conways_game.cpp -lallegro -lallegro_image -lallegro_font -lallegro_ttf
 ```
 5. O executável deve aparecer na pasta que foi clonada
-6. Se houver problema na execução, coloque na mesma pasta do executável as DLL's da biblioteca allegro > libstdc++-6.dll, libwinpthread-1.dll e libgcc_s_seh-1
+
+6. Se houver problema na execução, coloque na mesma pasta do executável as DLL's que estão incluídas no download da biblioteca allegro > libstdc++-6.dll, libwinpthread-1.dll e libgcc_s_seh-1
 
 **TO DO's**:
 1. Editar a fonte
