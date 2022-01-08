@@ -1,6 +1,7 @@
-# Conway's Game of Life
+# Conway's Game of Life 🚀
 ![Conway's Game](https://i.imgur.com/YYSZQQP.png)
-Hey, if you are looking for the README in ENGLISH, please visit the README_EN-US.md file, it has all the information you need. Have a great day
+
+<h2>Hey, if you are looking for the README in ENGLISH, please visit the README_EN-US.md file, it has all the information you need. Have a great day</h2>
 
 https://pt.wikipedia.org/wiki/Jogo_da_vida
 
