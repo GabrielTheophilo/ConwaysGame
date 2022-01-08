@@ -21,16 +21,16 @@ _Você pode compilar a partir da fonte, e rodar o executável gerado a partir di
 Como compilar o programa:
 1. Baixe a biblioteca [Allegro5](https://liballeg.org/) e adicione-a ao PATH de sua máquina
 2. Clone o repositório:
-```bash
-    foo@bar:~$ git clone https://github.com/GabrielTheophilo/ConwaysGame.git
+```console
+foo@bar:~$ git clone https://github.com/GabrielTheophilo/ConwaysGame.git
 ```
 3. Entre na pasta criada
-```bash
-    foo@bar:~$ cd ConwaysGame
+```console
+foo@bar:~$ cd ConwaysGame
 ```
 4. Com o compilador instalado, invoque o comando
-```bash
-    foo@bar:~$ gcc -o conwaysgame.exe conways_game.cpp -lallegro -lallegro_image -lallegro_font -lallegro_ttf
+```console
+foo@bar:~$ gcc -o conwaysgame.exe conways_game.cpp -lallegro -lallegro_image -lallegro_font -lallegro_ttf
 ```
 5. O executável deve aparecer na pasta que foi clonada
 6. Se houver problema na execução, coloque na mesma pasta do executável as DLL's da biblioteca allegro > libstdc++-6.dll, libwinpthread-1.dll e libgcc_s_seh-1
