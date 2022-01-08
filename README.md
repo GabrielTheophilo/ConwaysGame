@@ -13,7 +13,27 @@ E é assim que funciona:
 3. Se uma célula morta tiver 3 vizinhos, surge uma célula viva
 4. Se uma célula viva tiver mais de 3 vizinhos, ela morre de superlotação
 
-Você pode baixar os binários do projeto e executar em sua máquina acessando a página de [Releases](https://github.com/GabrielTheophilo/ConwaysGame/releases/tag/v0.0.1-alpha) e baixando o arquivo release.zip contendo o executável e os arquivos necessários para rodar o programa
+Como rodar o jogo:
+_Você pode baixar os binários do projeto e executar em sua máquina acessando a página de [Releases](https://github.com/GabrielTheophilo/ConwaysGame/releases/tag/v0.0.1-alpha) e baixando o arquivo release.zip contendo o executável e os arquivos necessários para rodar o programa
+
+_Você pode compilar a partir da fonte, e rodar o executável gerado a partir disso
+
+Como compilar o programa:
+1. Baixe a biblioteca [Allegro5](https://liballeg.org/) e adicione-a ao PATH de sua máquina
+2. Clone o repositório:
+'''bash
+    git clone https://github.com/GabrielTheophilo/ConwaysGame.git
+'''
+3. Entre na pasta criada
+'''bash
+    cd ConwaysGame
+'''
+4. Com o compilador instalado, invoque o comando
+'''bash
+    gcc -o conwaysgame.exe conways_game.cpp -lallegro -lallegro_image -lallegro_font -lallegro_ttf
+'''
+5. O executável deve aparecer na pasta que foi clonada
+6. Se houver problema na execução, coloque na mesma pasta do executável as DLL's da biblioteca allegro > libstdc++-6.dll, libwinpthread-1.dll e libgcc_s_seh-1
 
 **TO DO's**:
 1. Editar a fonte
