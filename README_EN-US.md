@@ -1,4 +1,5 @@
 # Conway's Game of Life
+![Conway's Game](https://i.imgur.com/wwp6Paw.png)
 https://pt.wikipedia.org/wiki/Jogo_da_vida
 
 Conway's game of life is a simple game that captures the imagination of thousands of people since it was first invented in the seventies. It's proposal is a simple one: The game is not played by a player. Between your screen and your chair sits an observer to the game. In the game's screen, we randomly select where our cells are born, and then they start interacting with their neighbors. They, like us, are social beings, they dont like loliness at all. But if the neighborhood gets too crowded...well... lets just say they begin to leave.
@@ -21,4 +22,4 @@ You can download the game's binaries and run it on your machine by accessing the
 5. Integrate the whole game, and variants, after making the main menu
 
 **Screenshots**
-![Conway's](https://i.imgur.com/dNhyYSJ.png)
+![Conway's](https://i.imgur.com/GYDB4mp.png)

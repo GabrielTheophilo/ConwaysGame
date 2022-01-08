@@ -1,5 +1,5 @@
 # Conway's Game of Life 🚀
-![Conway's Game](https://i.imgur.com/WhBDIgS.png)
+![Conway's Game](https://i.imgur.com/wwp6Paw.png)
 
 <h2>Hey, if you are looking for the README in ENGLISH, please visit the README_EN-US.md file, it has all the information you need. Have a great day</h2>
 
@@ -44,4 +44,4 @@ foo@bar:~$ gcc -o conwaysgame.exe conways_game.cpp -lallegro -lallegro_image -la
 5. Integrar todas as variantes num programa só, após criar o menu
 
 **Screenshots**
-![Conway's](https://i.imgur.com/dNhyYSJ.png)
+![Conway's](https://i.imgur.com/GYDB4mp.png)
