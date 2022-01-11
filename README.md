@@ -4,16 +4,15 @@
 
 
 
-O jogo da vida de Conway (Conway's Game of Life) é um jogo simples que captura a imaginação de milhares de pessoas desde a década de 70, quando foi inventado. Inventado pelo matemático britânico John Horton Conway, o jogo representa um autômato celular, com regras específicas para a geração e morte das células do mapa. O jogo evolui em "gerações", onde em cada uma a regra é aplicada, e o tabuleiro com as células se modifica, as vezes surgindo padrões explosivos, ou caóticos, ou até estáveis.
-
+O jogo da vida de Conway (Conway's Game of Life) é um jogo simples que captura a imaginação de milhares de pessoas desde a década de 70, quando foi inventado pelo matemático britânico John Horton Conway. O jogo representa um autômato celular, e foi criado para reproduzir, através de regras simples, as alterações e mudanças em grupos de seres vivos. A cada geração do jogo, as regras são aplicadas e determinam a vida e morte das células. O jogo evolui em "gerações", onde em cada uma a regra é aplicada, e o tabuleiro com as células se modifica, as vezes surgindo padrões explosivos, ou caóticos, ou até estáveis. O jogo pode contar com as regras clássicas(explicadas com mais detalhes abaixo) ou com variações que exacerbam certos aspectos da geração e destruição das células, e, a partir disso, surgem padrões interessantes na organização celular.
 
 ![Print](https://i.imgur.com/f0Zpsrh.png)
 ![Print](https://i.imgur.com/WiwWx3g.png)
 ![Print](https://i.imgur.com/JbQrbwK.png)
-![Print](https://i.imgur.com/6Wh4Osj.png)
 ![Print](https://i.imgur.com/99r3LdX.png)
-![Print](https://i.imgur.com/d5AsvU4.png)
+![Print](https://i.imgur.com/6Wh4Osj.png)
 ![Print](https://i.imgur.com/c13JW0P.png)
+![Print](https://i.imgur.com/d5AsvU4.png)
 ![Print](https://i.imgur.com/kAXiXqk.png)
 ![Print](https://i.imgur.com/iiew6CL.png)
 ![Print](https://i.imgur.com/VBgzvHA.png)
