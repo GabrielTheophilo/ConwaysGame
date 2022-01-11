@@ -14,7 +14,9 @@ Conway's game of life is a simple game that captures the imagination of thousand
 ![Print](https://i.imgur.com/kAXiXqk.png)
 ![Print](https://i.imgur.com/iiew6CL.png)
 ![Print](https://i.imgur.com/VBgzvHA.png)
-
+![Print](https://i.imgur.com/rK4Kt4G.png)
+![Print](https://i.imgur.com/uPcmzK8.png)
+![Print](https://i.imgur.com/pw9oe9w.png)
 
 These are the rules:
 1. If a living cell has 0 or 1 neighbors, they die of loliness
