@@ -4,7 +4,15 @@
 
 
 
-O jogo da vida de Conway (Conway's Game of Life) é um jogo simples que captura a imaginação de milhares de pessoas desde a década de 70, quando foi inventado. Sua proposta é simples: O jogo não é jogado por um jogador. O espaço entre a tela do seu computador e a cadeira compreende o lugar do observador deste jogo. Um tabuleiro, uma malha, ou um cenário é colocado na tela, e a partir dela sorteamos aleatóriamente onde os habitantes desse pequeno universo vão nascer.
+O jogo da vida de Conway (Conway's Game of Life) é um jogo simples que captura a imaginação de milhares de pessoas desde a década de 70, quando foi inventado. Inventado pelo matemático britânico John Horton Conway, o jogo representa um autômato celular, com regras específicas para a geração e morte das células do mapa. O jogo evolui em "gerações", onde em cada uma a regra é aplicada, e o tabuleiro com as células se modifica, as vezes surgindo padrões explosivos, ou caóticos, ou até estáveis.
+
+
+![Print](https://i.imgur.com/f0Zpsrh.png)
+![Print](https://i.imgur.com/WiwWx3g.png)
+![Print](https://i.imgur.com/JbQrbwK.png)
+![Print](https://i.imgur.com/6Wh4Osj.png)
+
+Sua proposta é simples: O jogo não é jogado por um jogador. O espaço entre a tela do seu computador e a cadeira compreende o lugar do observador deste jogo. Um tabuleiro, uma malha, ou um cenário é colocado na tela, e a partir dela sorteamos aleatóriamente onde os habitantes desse pequeno universo vão nascer.
 Eles, assim como nós, são seres sociais, e não gostam nem um pouco de solidão. Porém, se a vizinhança começa a ficar muito lotada... bom... digamos que eles resolvam partir dali.
 E é assim que funciona:
 1. Se uma célula tiver 1 ou 0 vizinhos, ela morre de solidão
