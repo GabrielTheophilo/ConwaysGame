@@ -12,6 +12,11 @@ O jogo da vida de Conway (Conway's Game of Life) é um jogo simples que captura 
 ![Print](https://i.imgur.com/JbQrbwK.png)
 ![Print](https://i.imgur.com/6Wh4Osj.png)
 ![Print](https://i.imgur.com/99r3LdX.png)
+![Print](https://i.imgur.com/d5AsvU4.png)
+![Print](https://i.imgur.com/c13JW0P.png)
+![Print](https://i.imgur.com/kAXiXqk.png)
+![Print](https://i.imgur.com/iiew6CL.png)
+![Print](https://i.imgur.com/VBgzvHA.png)
 
 Sua proposta é simples: O jogo não é jogado por um jogador. O espaço entre a tela do seu computador e a cadeira compreende o lugar do observador deste jogo. Um tabuleiro, uma malha, ou um cenário é colocado na tela, e a partir dela sorteamos aleatóriamente onde os habitantes desse pequeno universo vão nascer.
 Eles, assim como nós, são seres sociais, e não gostam nem um pouco de solidão. Porém, se a vizinhança começa a ficar muito lotada... bom... digamos que eles resolvam partir dali.
