@@ -8,6 +8,8 @@ Necessário(Se modif.) |                        Incluído
  Power Up/Sprite      |                   MeatSmall5.bmp
  Fonte(Qlqr TTF serve)|                             ---
 FLAGS NECESSÁRIAS PARA O COMPILADOR/LINKADOR -> -lallegro -lallegro_image -lallegro_font -lallegro_ttf
+
+Para executar o arquivo exe compilado, passar a flag -mwindows ao compilador
 */
 
 #include <allegro5/allegro.h>
@@ -306,7 +308,6 @@ ALLEGRO_BITMAP *power_up2 = NULL;
 int contador = 0;     //contador de tempo
 int passo = 0;
 int *timer1;
-
 bool redraw = true;
 bool sair = false;
 
@@ -350,7 +351,7 @@ int inicializa() {
         return 0;
     }
 
-    mapa = al_load_bitmap("map2.bmp");
+    mapa = al_load_bitmap("recursos/map2.bmp");
     if(!mapa)
     {
         cout << "Falha ao carregar o mapa!" << endl;
@@ -359,7 +360,7 @@ int inicializa() {
     }
     al_draw_bitmap(mapa,0,0,0);
 
-    power_up = al_load_bitmap("MeatSmall6.bmp");
+    power_up = al_load_bitmap("recursos/MeatSmall6.bmp");
     if(!power_up)
     {
         cout << "Falha ao carregar o power_up" << endl;
@@ -378,7 +379,7 @@ int inicializa() {
     }
     al_init_font_addon();    // INICIALIZAR AS FUNÇÕES DE FONTE 
     al_init_ttf_addon();     // INICIALIZAR ESTE ADDON -APÓS- INICIALIZAR O font_addon
-    font = al_load_ttf_font("Starjedi.ttf", 26, 0);  // carrega arquivo ttf para formato da fonte
+    font = al_load_ttf_font("recursos/Starjedi.ttf", 26, 0);  // carrega arquivo ttf para formato da fonte
     
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
