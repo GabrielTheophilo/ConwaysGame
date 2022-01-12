@@ -357,7 +357,7 @@ int inicializa() {
         return 0;
     }
 
-    mapa = al_load_bitmap("recursos/map2.bmp");
+    mapa = al_load_bitmap("recursos/map.bmp");
     if(!mapa)
     {
         cout << "Falha ao carregar o mapa!" << endl;
@@ -366,7 +366,7 @@ int inicializa() {
     }
     al_draw_bitmap(mapa,0,0,0);
 
-    power_up = al_load_bitmap("recursos/MeatSmall6.bmp");
+    power_up = al_load_bitmap("recursos/cell.bmp");
     if(!power_up)
     {
         cout << "Falha ao carregar o power_up" << endl;
