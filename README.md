@@ -29,17 +29,18 @@ E é assim que funciona:
 3. Se uma célula morta tiver 3 vizinhos, surge uma célula viva
 4. Se uma célula viva tiver mais de 3 vizinhos, ela morre de superlotação
 
-Como rodar o jogo:
-
-Você pode baixar os binários do projeto e executar em sua máquina acessando a página de [Releases](https://github.com/GabrielTheophilo/ConwaysGame/releases/tag/v0.0.1-alpha) e baixando o arquivo release.zip contendo o executável e os arquivos necessários para rodar o programa
-
-Você pode compilar a partir da fonte, e rodar o executável gerado a partir disso
 
 Como interagir com o jogo:
 
 Você pode spawnar novas células apertando a tecla ESPAÇO
 Você pode controlar a velocidade da exibição apertando a SETA PARA CIMA (Aumentar a velocidade) e a SETA PARA BAIXO (Diminuir a velocidade)
 
+
+Como rodar o jogo:
+
+Você pode baixar os binários do projeto e executar em sua máquina acessando a página de [Releases](https://github.com/GabrielTheophilo/ConwaysGame/releases/tag/v0.0.1-alpha) e baixando o arquivo release.zip contendo o executável e os arquivos necessários para rodar o programa
+
+Você pode compilar a partir da fonte, e rodar o executável gerado a partir disso
 
 Como compilar o programa:
 1. Baixe a biblioteca [Allegro5](https://liballeg.org/) e adicione-a ao PATH de sua máquina

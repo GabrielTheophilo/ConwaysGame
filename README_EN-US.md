@@ -4,8 +4,6 @@
 
 Conway's game of life is a simple game that captures the imagination of thousands of people since it was first invented in the seventies by the british mathematician John Horton Conway. The game represent's a celular automaton, and was created to reproduce, using some simple rules, the changes in a group of living cells. At each generation of the game, the rules are applied to determine the cell's life or death. The game "evolves" in generations, and in each one, some interesting patterns can emerge. Depending on the rule's variations, several patterns can emerge, being stable, chaotic or explosive.
 
- It's proposal is a simple one: The game is not played by a player. Between your screen and your chair sits an observer to the game. In the game's screen, we randomly select where our cells are born, and then they start interacting with their neighbors. They, like us, are social beings, they dont like loliness at all. But if the neighborhood gets too crowded...well... lets just say they begin to leave.
-
 
 ![Print](https://i.imgur.com/f0Zpsrh.png)
 ![Print](https://i.imgur.com/WiwWx3g.png)
@@ -21,6 +19,8 @@ Conway's game of life is a simple game that captures the imagination of thousand
 ![Print](https://i.imgur.com/uPcmzK8.png)
 ![Print](https://i.imgur.com/pw9oe9w.png)
 
+
+ It's proposal is a simple one: The game is not played by a player. Between your screen and your chair sits an observer to the game. In the game's screen, we randomly select where our cells are born, and then they start interacting with their neighbors. They, like us, are social beings, they dont like loliness at all. But if the neighborhood gets too crowded...well... lets just say they begin to leave.
 These are the rules:
 1. If a living cell has 0 or 1 neighbors, they die of loliness
 2. If a living cell has exactly 2 or 3 neighbors, they stay alive where they are
