@@ -1,6 +1,6 @@
 # [Conway's Game of Life 🚀](https://pt.wikipedia.org/wiki/Jogo_da_vida)
 ![Conways](https://i.imgur.com/cw42u24.png)
-<h2>Hey, if you are looking for the README in ENGLISH, please visit the README_EN-US.md file, it has all the information you need. Have a great day</h2>
+<h2>Hey, if you are looking for the README in ENGLISH, please visit the <a href="https://github.com/GabrielTheophilo/ConwaysGame/blob/main/README_EN-US.md">README_EN-US.md </a>file, it has all the information you need. Have a great day</h2>
 
 
 
