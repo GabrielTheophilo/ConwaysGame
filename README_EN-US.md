@@ -31,6 +31,12 @@ And thats it, from this simple concept they start to create patterns and random 
 
 You can download the game's binaries and run it on your machine by accessing the [Releases](https://github.com/GabrielTheophilo/ConwaysGame/releases/tag/v0.0.1-alpha) tab and download the "release.zip" file containing the executables and assets needed to run the program
 
+How to interact with the game:
+
+You can spawn new cells by pressing SPACE
+You can control the game's speed by pressing the key UP (Increase speed) and key DOWN (Decreases speed)
+
+
 This game was built in C++ with the Allegro5 library, and compiled(tested) with GCC(g++) 7.3.0
 
 How to compile the game yourself:

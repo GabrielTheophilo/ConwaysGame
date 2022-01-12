@@ -35,6 +35,12 @@ Você pode baixar os binários do projeto e executar em sua máquina acessando a
 
 Você pode compilar a partir da fonte, e rodar o executável gerado a partir disso
 
+Como interagir com o jogo:
+
+Você pode spawnar novas células apertando a tecla ESPAÇO
+Você pode controlar a velocidade da exibição apertando a SETA PARA CIMA (Aumentar a velocidade) e a SETA PARA BAIXO (Diminuir a velocidade)
+
+
 Como compilar o programa:
 1. Baixe a biblioteca [Allegro5](https://liballeg.org/) e adicione-a ao PATH de sua máquina
 2. Clone o repositório:
