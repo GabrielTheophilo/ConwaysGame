@@ -1,21 +1,21 @@
 /*
-        Bem vindo ao jogo da vida
- - Arquivos necessários para a compilação -
-Necessário(Se modif.) |                        Incluído
+        Welcome to the game of life
+ - Files necessary for compiling -
+Necessary(If modified)|      Included on resources folder
  ------------------------------------------------------
- Mapa                 |                        map2.bmp
- Personagem           |                            .bmp
- Power Up/Sprite      |                   MeatSmall5.bmp
- Fonte(Qlqr TTF serve)|                             ---
-FLAGS NECESSÁRIAS PARA O COMPILADOR/LINKADOR -> -lallegro -lallegro_image -lallegro_font -lallegro_ttf
+ Mapa                 |                        map.bmp
+ Personagem           |                       cell.bmp
+ Font(Any ttf will do)|              VT323-Regular.ttf
+FLAGS NECESSARY FOR THE COMPILER/LINKER -> -lallegro -lallegro_image -lallegro_font -lallegro_ttf
 
-Para executar o arquivo exe compilado, passar a flag -mwindows ao compilador
+To execute this program without spawning the command prompt(on windows), use this flag also -> -mwindows
+
 */
 
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
-#include <allegro5/allegro_font.h>   //Importação das funções de FONTE do allegro -> usar junto com 'allegro_ttf.h' para carregar fontes ttf(TrueType Font) 
-#include <allegro5/allegro_ttf.h>    //Ao importar esses dois arquivos, adicionar as flags -lallegro_font -lallegro_ttf ao linkador
+#include <allegro5/allegro_font.h>  
+#include <allegro5/allegro_ttf.h>    
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
@@ -33,7 +33,6 @@ int SCREEN_W = 1000;
 int SCREEN_H = 1000;
 
 
-//matriz definindo mapa do jogo: 1 representa paredes, 0 representa corredor
 char MAPA[260][260] =
 {
     "2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222",
@@ -310,7 +309,7 @@ ALLEGRO_BITMAP *power_up = NULL;
 ALLEGRO_BITMAP *power_up1 = NULL;
 ALLEGRO_BITMAP *power_up2 = NULL;
 
-int contador = 0;     //contador de tempo
+int contador = 0;   
 int passo = 0;
 int *timer1;
 bool redraw = true;
@@ -318,10 +317,6 @@ bool sair = false;
 
 const char * texto = {"Geração: "};
 const char * fpsMark = {"FPS: "};
-
-void CLEAR(){                   
-    system("CLS");		//limpar tela
-}
 
 int inicializa() {
     
@@ -383,9 +378,9 @@ int inicializa() {
         al_destroy_timer(timer);
         return 0;
     }
-    al_init_font_addon();    // INICIALIZAR AS FUNÇÕES DE FONTE 
-    al_init_ttf_addon();     // INICIALIZAR ESTE ADDON -APÓS- INICIALIZAR O font_addon
-    font = al_load_ttf_font("recursos/VT323-Regular.ttf", 26, 0);  // carrega arquivo ttf para formato da fonte
+    al_init_font_addon();    
+    al_init_ttf_addon();    
+    font = al_load_ttf_font("recursos/VT323-Regular.ttf", 26, 0);  
     
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
