@@ -22,8 +22,13 @@ Para executar o arquivo exe compilado, passar a flag -mwindows ao compilador
 
 using namespace std;
 
+enum MYKEYS
+{
+    KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT
+};
 
 float FPS = 12.1;
+float *FPSPointer = &FPS;
 int SCREEN_W = 1000;
 int SCREEN_H = 1000;
 
@@ -312,6 +317,7 @@ bool redraw = true;
 bool sair = false;
 
 const char * texto = {"Geração: "};
+const char * fpsMark = {"FPS: "};
 
 void CLEAR(){                   
     system("CLS");		//limpar tela
@@ -390,173 +396,11 @@ int inicializa() {
     return 1;
 }
 
-int main(int argc, char **argv)
-{
-	bool morre[260][260] = {false};
-    bool vive[260][260] = {true};
-    bool doisvive[260][260] = {false};
-    bool revive[260][260] = {false};
-    bool revivenaprox[260][260] = {false};
-
-    int geracao = -1;
-
-    srand(time(NULL));
-
-	if(!inicializa()) return -1;
-
-    while(!sair)
-    {
-        
-        ALLEGRO_EVENT ev;
-        al_wait_for_event(event_queue, &ev);
-
-        if(ev.type == ALLEGRO_EVENT_TIMER)
-        {
-            passo++;
-            geracao += 1;
-            if(geracao == 0){
-                int celRand = 0;
-                int coluna, linha = 0;
-                for(int i = 59; i<182;i++){
-                    for(int j = 59; j<182;j++){
-                        if(((rand()%8)==1 && MAPA[i][j]!='2')){
-                            MAPA[i][j] = '1';
-                        }
-                    }
-                }
-            }
-            
-            if(geracao>=1){
-                int vizinhos = 0;
-                for(int i=1;i<259;i++){
-                    for(int j = 1;j<259;j++){
-                        revive[i][j] = revivenaprox[i][j];
-                        revivenaprox[i][j] = false;
-
-                    }
-                }
-                for(int i=1;i<259;i++){
-                    for(int j = 1;j<259;j++){
-                        if(MAPA[i][j]=='0'){
-                            if(MAPA[i+1][j]=='1'){
-                                    vizinhos++;
-                                    }
-                                    if(MAPA[i+1][j+1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i+1][j-1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i-1][j+1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i-1][j]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i-1][j-1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i][j+1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i][j-1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    // b3
-                                    if(vizinhos==3){
-                                        revive[i][j]=true;
-                                    }
-                                    vizinhos = 0;
-                        }
-                            if(MAPA[i][j]=='1'){
-                                if(vive){
-                                    if(MAPA[i+1][j]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i+1][j+1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i+1][j-1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i-1][j+1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i-1][j]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i-1][j-1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i][j+1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i][j-1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(vizinhos>3){
-                                        morre[i][j]=true;
-                                        vive[i][j]=false;
-                                    }
-                                    //s23
-                                    if(vizinhos == 2 || vizinhos == 3){
-                                        morre[i][j]=false;
-                                        vive[i][j]=true;
-                                    }
-                                    if(vizinhos==1 || vizinhos==0){
-                                        morre[i][j]=true;
-                                    }
-                                    vizinhos = 0;
-                                }
-                        }
-                    }
-                }
-
-                for(int i = 1;i<259;i++){
-                    for(int j = 1;j<259;j++){
-                        if(morre[i][j]){
-                            MAPA[i][j]='0';
-                        }
-                        if(revive[i][j]==true){
-                            MAPA[i][j]='1';
-                        }
-                        
-                    }
-                }
-            }		
-            redraw = true;
-            
-        }
-        else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
-        {
-            break;
-        }
-
-
-        if(redraw && al_is_event_queue_empty(event_queue))
-        {
-            redraw = false;
-            al_clear_to_color(al_map_rgb(0,0,0));
-            al_draw_bitmap(mapa,0,0,0);
-
-            for(int l=1;l<259;l++){
-				for(int p=1;p<259;p++){
-                    if(MAPA[l][p]=='1'){
-                        al_draw_bitmap(power_up, l*4, p*4, 0);
-                    }
-				}
-			}
-            al_draw_textf(font, al_map_rgb(255,0,0),330,900, 0, texto);
-            al_draw_textf(font, al_map_rgb(255,0,0),620,900, 0, "%d", geracao);
-			al_flip_display();
-		}
-	}
-
+int desinicializa(){
     al_destroy_bitmap(mapa);
     al_destroy_bitmap(pacman);
     al_destroy_timer(timer);
     al_destroy_display(display);
     al_destroy_event_queue(event_queue);
-
-    return 0;
 }
+
