@@ -385,7 +385,7 @@ int inicializa() {
     }
     al_init_font_addon();    // INICIALIZAR AS FUNÇÕES DE FONTE 
     al_init_ttf_addon();     // INICIALIZAR ESTE ADDON -APÓS- INICIALIZAR O font_addon
-    font = al_load_ttf_font("recursos/Starjedi.ttf", 26, 0);  // carrega arquivo ttf para formato da fonte
+    font = al_load_ttf_font("recursos/VT323-Regular.ttf", 26, 0);  // carrega arquivo ttf para formato da fonte
     
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));

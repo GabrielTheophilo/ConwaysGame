@@ -143,13 +143,27 @@ int main(int argc, char **argv)
             switch(ev.keyboard.keycode)
             {
 				case ALLEGRO_KEY_UP:
-                    *FPSPointer+=1.0;
-                    al_set_timer_speed(timer, 1.0/ *FPSPointer);
+                    if(*FPSPointer<=100.0){
+                        *FPSPointer+=1.0;
+                        al_set_timer_speed(timer, 1.0/ *FPSPointer);
+                    }
 				    break;
 				case ALLEGRO_KEY_DOWN:
-                    *FPSPointer-=1.0;
-                    al_set_timer_speed(timer, 1.0/ *FPSPointer);
+                    if(*FPSPointer>=2.0){
+                        *FPSPointer-=1.0;
+                        al_set_timer_speed(timer, 1.0/ *FPSPointer);
+                    }
                     break;
+                case ALLEGRO_KEY_SPACE:
+                    for(int i = 49; i<208;i++){
+                        for(int j = 49; j<208;j++){
+                            if(((rand()%32)==1 && MAPA[i][j]!='2')){
+                                MAPA[i][j] = '1';
+                            }
+                        }
+                    }
+                    break;
+
             }
             
         }
@@ -177,7 +191,7 @@ int main(int argc, char **argv)
             al_draw_textf(font, al_map_rgb(255,0,0),620,900, 0, "%d", geracao);
 
             al_draw_textf(font, al_map_rgb(255,0,0),330,850, 0, fpsMark);
-            al_draw_textf(font, al_map_rgb(255,0,0),620,850, 0, "%f", FPS);
+            al_draw_textf(font, al_map_rgb(255,0,0),620,850, 0, "%0.1f", FPS);
             
 			al_flip_display();
 		}
