@@ -331,6 +331,11 @@ int inicializa(){
         cout << "Falha ao inicializar o teclado" << endl;
         return 0;
     }
+    if(!al_install_mouse()){
+        cout << "Falha ao inicializar o mouse" << endl;
+        return 0;
+    }
+
 
     timer = al_create_timer(1.0 / FPS);
     if(!timer){
@@ -379,6 +384,7 @@ int inicializa(){
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_keyboard_event_source());
+    al_register_event_source(event_queue, al_get_mouse_event_source());
     al_clear_to_color(al_map_rgb(0,0,0));
     al_flip_display();
     al_start_timer(timer);

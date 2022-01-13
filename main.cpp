@@ -160,6 +160,44 @@ int main(int argc, char **argv){
                     break;
                 }
         }
+        else if(ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){
+            int coordenadaX = ev.mouse.x/4;
+            int coordenadaY = ev.mouse.y/4;
+            int random = (rand()%4);
+            switch(random){
+                case 0:
+                    MAPA[coordenadaX][coordenadaY] = '1';
+                    MAPA[coordenadaX-1][coordenadaY] = '1';
+                    MAPA[coordenadaX+1][coordenadaY-1] = '1';
+                    MAPA[coordenadaX-1][coordenadaY+1] = '1';
+                    MAPA[coordenadaX+1][coordenadaY+1] = '1';
+                    break;
+                case 1:
+                    MAPA[coordenadaX][coordenadaY] = '1';
+                    MAPA[coordenadaX-1][coordenadaY] = '1';
+                    MAPA[coordenadaX][coordenadaY+1] = '1';
+                    break;
+                case 2:
+                    MAPA[coordenadaX][coordenadaY] = '1';
+                    MAPA[coordenadaX+1][coordenadaY] = '1';
+                    MAPA[coordenadaX-1][coordenadaY-1] = '1';
+                    break;
+                case 3:
+                    MAPA[coordenadaX][coordenadaY] = '1';
+                    MAPA[coordenadaX+1][coordenadaY] = '1';
+                    MAPA[coordenadaX-1][coordenadaY-1] = '1';
+                    MAPA[coordenadaX-1][coordenadaY] = '1';
+                    break;
+                case 4:
+                    MAPA[coordenadaX][coordenadaY] = '1';
+                    MAPA[coordenadaX+1][coordenadaY] = '1';
+                    MAPA[coordenadaX-1][coordenadaY-1] = '1';
+                    MAPA[coordenadaX-1][coordenadaY] = '1';
+                    MAPA[coordenadaX+1][coordenadaY+1] = '1';
+                    break;
+            }
+            
+        }
         
         else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
             break;
