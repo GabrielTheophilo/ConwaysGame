@@ -1,12 +1,13 @@
 #include "conways_game.cpp"
 
-int main(int argc, char **argv)
-{
+
+int main(int argc, char **argv){
 	bool morre[260][260] = {false};
     bool vive[260][260] = {true};
     bool doisvive[260][260] = {false};
     bool revive[260][260] = {false};
     bool revivenaprox[260][260] = {false};
+    int contador_vivos = 0;
 
     int geracao = -1;
 
@@ -14,9 +15,7 @@ int main(int argc, char **argv)
 
 	if(!inicializa()) return -1;
 
-    while(!sair)
-    {
-        
+    while(!sair){
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_queue, &ev);
 
@@ -35,7 +34,6 @@ int main(int argc, char **argv)
                     }
                 }
             }
-            
             if(geracao>=1){
                 int vizinhos = 0;
                 for(int i=1;i<259;i++){
@@ -78,46 +76,46 @@ int main(int argc, char **argv)
                                     }
                                     vizinhos = 0;
                         }
-                            if(MAPA[i][j]=='1'){
-                                if(vive){
-                                    if(MAPA[i+1][j]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i+1][j+1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i+1][j-1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i-1][j+1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i-1][j]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i-1][j-1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i][j+1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(MAPA[i][j-1]=='1'){
-                                        vizinhos++;
-                                    }
-                                    if(vizinhos>3){
-                                        morre[i][j]=true;
-                                        vive[i][j]=false;
-                                    }
-                                    //s23
-                                    if(vizinhos == 2 || vizinhos == 3){
-                                        morre[i][j]=false;
-                                        vive[i][j]=true;
-                                    }
-                                    if(vizinhos==1 || vizinhos==0){
-                                        morre[i][j]=true;
-                                    }
-                                    vizinhos = 0;
+                        if(MAPA[i][j]=='1'){
+                            if(vive){
+                                if(MAPA[i+1][j]=='1'){
+                                    vizinhos++;
                                 }
+                                if(MAPA[i+1][j+1]=='1'){
+                                    vizinhos++;
+                                }
+                                if(MAPA[i+1][j-1]=='1'){
+                                    vizinhos++;
+                                }
+                                if(MAPA[i-1][j+1]=='1'){
+                                    vizinhos++;
+                                }
+                                if(MAPA[i-1][j]=='1'){
+                                    vizinhos++;
+                                }
+                                if(MAPA[i-1][j-1]=='1'){
+                                    vizinhos++;
+                                }
+                                if(MAPA[i][j+1]=='1'){
+                                    vizinhos++;
+                                }
+                                if(MAPA[i][j-1]=='1'){
+                                    vizinhos++;
+                                }
+                                if(vizinhos>3){
+                                    morre[i][j]=true;
+                                    vive[i][j]=false;
+                                }
+                                //s23
+                                if(vizinhos == 2 || vizinhos == 3){
+                                    morre[i][j]=false;
+                                    vive[i][j]=true;
+                                }
+                                if(vizinhos==1 || vizinhos==0){
+                                    morre[i][j]=true;
+                                }
+                                vizinhos = 0;
+                            }
                         }
                     }
                 }
@@ -129,21 +127,18 @@ int main(int argc, char **argv)
                         }
                         if(revive[i][j]==true){
                             MAPA[i][j]='1';
-                        }
-                        
+                        } 
                     }
                 }
             }		
             redraw = true;
-            
         }
 
-        else if(ev.type == ALLEGRO_EVENT_KEY_UP)
-        {
+        else if(ev.type == ALLEGRO_EVENT_KEY_UP){
             switch(ev.keyboard.keycode)
             {
 				case ALLEGRO_KEY_UP:
-                    if(*FPSPointer<=100.0){
+                    if(*FPSPointer<=150.0){
                         *FPSPointer+=1.0;
                         al_set_timer_speed(timer, 1.0/ *FPSPointer);
                     }
@@ -163,41 +158,35 @@ int main(int argc, char **argv)
                         }
                     }
                     break;
-
-            }
-            
-        }
-        else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
-        {
-            break;
+                }
         }
         
-
-
-        if(redraw && al_is_event_queue_empty(event_queue))
-        {
+        else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
+            break;
+        }
+        if(redraw && al_is_event_queue_empty(event_queue)){
+            contador_vivos = 0;
             redraw = false;
             al_clear_to_color(al_map_rgb(0,0,0));
             al_draw_bitmap(mapa,0,0,0);
-
             for(int l=1;l<259;l++){
-				for(int p=1;p<259;p++){
+	        	for(int p=1;p<259;p++){
                     if(MAPA[l][p]=='1'){
+                        contador_vivos++;
                         al_draw_bitmap(power_up, l*4, p*4, 0);
                     }
-				}
-			}
+	        	}
+	        }
             al_draw_textf(font, al_map_rgb(255,0,0),330,900, 0, texto);
             al_draw_textf(font, al_map_rgb(255,0,0),620,900, 0, "%d", geracao);
-
             al_draw_textf(font, al_map_rgb(255,0,0),330,850, 0, fpsMark);
             al_draw_textf(font, al_map_rgb(255,0,0),620,850, 0, "%0.1f", FPS);
-            
-			al_flip_display();
+            al_draw_textf(font, al_map_rgb(255,0,0),330,950, 0, celulas);
+            al_draw_textf(font, al_map_rgb(255,0,0),620,950, 0, "%d", contador_vivos);
+
+	        al_flip_display();
 		}
 	}
-
     desinicializa();
-
     return 0;
 }

@@ -20,6 +20,7 @@ To execute this program without spawning the command prompt(on windows), use thi
 #include <stdlib.h>
 #include <time.h>
 
+
 using namespace std;
 
 enum MYKEYS
@@ -27,7 +28,7 @@ enum MYKEYS
     KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT
 };
 
-float FPS = 12.1;
+float FPS = 12.0;
 float *FPSPointer = &FPS;
 int SCREEN_W = 1000;
 int SCREEN_H = 1000;
@@ -309,52 +310,47 @@ ALLEGRO_BITMAP *power_up = NULL;
 ALLEGRO_BITMAP *power_up1 = NULL;
 ALLEGRO_BITMAP *power_up2 = NULL;
 
-int contador = 0;   
-int passo = 0;
 int *timer1;
-bool redraw = true;
-bool sair = false;
+int contador = 0;   
+int passo    = 0;
+bool redraw  = true;
+bool sair    = false;
 
-const char * texto = {"Geração: "};
+const char * texto   = {"Geração: "};
 const char * fpsMark = {"FPS: "};
+const char * celulas = {"Células: "};
 
-int inicializa() {
+int inicializa(){
     
-    if(!al_init())
-    {
+    if(!al_init()){
         cout << "Falha ao carregar Allegro" << endl;
         return 0;
     }
 
-    if(!al_install_keyboard())
-    {
+    if(!al_install_keyboard()){
         cout << "Falha ao inicializar o teclado" << endl;
         return 0;
     }
 
     timer = al_create_timer(1.0 / FPS);
-    if(!timer)
-    {
+    if(!timer){
         cout << "Falha ao inicializar o temporizador" << endl;
         return 0;
     }
 
-    if(!al_init_image_addon())
-    {
+    if(!al_init_image_addon()){
         cout <<"Falha ao iniciar al_init_image_addon!" << endl;
         return 0;
     }
     display = al_create_display(SCREEN_W, SCREEN_H);
-    if(!display)
-    {
+    if(!display){
         cout << "Falha ao inicializar a tela" << endl;
         al_destroy_timer(timer);
         return 0;
     }
 
     mapa = al_load_bitmap("recursos/map.bmp");
-    if(!mapa)
-    {
+    if(!mapa){
         cout << "Falha ao carregar o mapa!" << endl;
         al_destroy_display(display);
         return 0;
@@ -362,22 +358,20 @@ int inicializa() {
     al_draw_bitmap(mapa,0,0,0);
 
     power_up = al_load_bitmap("recursos/cell.bmp");
-    if(!power_up)
-    {
+    if(!power_up){
         cout << "Falha ao carregar o power_up" << endl;
         al_destroy_display(display);
         return 0;
     }
 
-
     event_queue = al_create_event_queue();
-    if(!event_queue)
-    {
+    if(!event_queue){
         cout << "Falha ao criar a fila de eventos" << endl;
         al_destroy_display(display);
         al_destroy_timer(timer);
         return 0;
     }
+
     al_init_font_addon();    
     al_init_ttf_addon();    
     font = al_load_ttf_font("recursos/VT323-Regular.ttf", 26, 0);  
