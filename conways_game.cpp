@@ -309,16 +309,33 @@ ALLEGRO_BITMAP *pacman_left = NULL;
 ALLEGRO_BITMAP *power_up = NULL;
 ALLEGRO_BITMAP *power_up1 = NULL;
 ALLEGRO_BITMAP *power_up2 = NULL;
+ALLEGRO_BITMAP *mainmenu = NULL;
 
 int *timer1;
 int contador = 0;   
 int passo    = 0;
 bool redraw  = true;
 bool sair    = false;
+bool variante_Conway = false;
+bool variante_HighLife = false;
+bool statusmenu = false;
 
 const char * texto   = {"Geração: "};
 const char * fpsMark = {"FPS: "};
 const char * celulas = {"Células: "};
+
+int menu(){
+    ALLEGRO_EVENT event;
+    al_draw_bitmap(mainmenu,0,0,0);
+    al_flip_display();
+    al_wait_for_event(event_queue, &event);
+    if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
 
 int inicializa(){
     
@@ -354,6 +371,11 @@ int inicializa(){
         return 0;
     }
 
+    mainmenu = al_load_bitmap("recursos/conways_menu.bmp");
+    if(!mainmenu){
+        cout << "Falha ao carregar o mapa!" << endl;
+        return 0;
+    }
     mapa = al_load_bitmap("recursos/map.bmp");
     if(!mapa){
         cout << "Falha ao carregar o mapa!" << endl;
@@ -388,8 +410,14 @@ int inicializa(){
     al_clear_to_color(al_map_rgb(0,0,0));
     al_flip_display();
     al_start_timer(timer);
+    
+    while(statusmenu!=true){
+        statusmenu = menu();
+    }
     return 1;
 }
+
+
 
 int desinicializa(){
     al_destroy_bitmap(mapa);
