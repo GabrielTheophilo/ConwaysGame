@@ -150,7 +150,14 @@ int main(int argc, char **argv){
                         }
                     }
                     break;
-                }
+                case ALLEGRO_KEY_LEFT:
+                    for(int i = 0; i<259;i++){
+                        for(int j = 0; j<259;j++){
+                            MAPA[i][j] = '0';
+                        }
+                    }
+                    break;
+            }
         }
         else if(ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){
             int coordenadaX = ev.mouse.x/4;

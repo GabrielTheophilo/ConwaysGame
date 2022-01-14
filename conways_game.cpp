@@ -318,6 +318,7 @@ bool redraw  = true;
 bool sair    = false;
 bool variante_Conway =  false;
 bool variante_HighLife = false;
+
 bool statusmenu = false;
 
 const char * texto   = {"Geração: "};
@@ -327,6 +328,8 @@ const char * variante = {"Variante: "};
 
 const char * varianteConway = {"Conway's"};
 const char * varianteHighLife = {"HighLife"};
+
+
 
 int menu(){
     ALLEGRO_EVENT event;
@@ -349,6 +352,8 @@ int menu(){
     }
 }
 
+
+
 void regrasMorre(int vizinhos, bool revive[][260], int indexX,int indexY){
     if(variante_Conway == true){
         if(vizinhos==3){
@@ -360,6 +365,8 @@ void regrasMorre(int vizinhos, bool revive[][260], int indexX,int indexY){
             revive[indexX][indexY]=true;
         }
     }
+    
+
 }
 
 void regrasVive(int vizinhos, bool morre[][260], bool vive[][260], int indexX,int indexY){
@@ -368,7 +375,7 @@ void regrasVive(int vizinhos, bool morre[][260], bool vive[][260], int indexX,in
             morre[indexX][indexY]=false;
             vive[indexX][indexY]=true;
         }
-        if(vizinhos==1 || vizinhos==0){
+        if(vizinhos==1 || vizinhos==0||vizinhos==4||vizinhos==5||vizinhos==6||vizinhos==7||vizinhos==8){
             morre[indexX][indexY]=true;
         }
     }
