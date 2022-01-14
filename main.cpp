@@ -207,12 +207,21 @@ int main(int argc, char **argv){
                     }
 	        	}
 	        }
-            al_draw_textf(font, al_map_rgb(255,0,0),330,900, 0, texto);
-            al_draw_textf(font, al_map_rgb(255,0,0),620,900, 0, "%d", geracao);
-            al_draw_textf(font, al_map_rgb(255,0,0),330,850, 0, fpsMark);
-            al_draw_textf(font, al_map_rgb(255,0,0),620,850, 0, "%0.1f", FPS);
+            al_draw_textf(font, al_map_rgb(255,0,0),330,920, 0, texto);
+            al_draw_textf(font, al_map_rgb(255,0,0),620,920, 0, "%d", geracao);
+            al_draw_textf(font, al_map_rgb(255,0,0),330,900, 0, fpsMark);
+            al_draw_textf(font, al_map_rgb(255,0,0),620,900, 0, "%0.1f", FPS);
             al_draw_textf(font, al_map_rgb(255,0,0),330,950, 0, celulas);
             al_draw_textf(font, al_map_rgb(255,0,0),620,950, 0, "%d", contador_vivos);
+
+            al_draw_textf(font, al_map_rgb(255,0,0),330,970, 0, variante);
+
+            if(variante_Conway){
+                al_draw_textf(font, al_map_rgb(255,0,0),620,970, 0, varianteConway);
+            }
+            else if(varianteHighLife){
+                al_draw_textf(font, al_map_rgb(255,0,0),620,970, 0, varianteHighLife);
+            }
 
 	        al_flip_display();
 		}

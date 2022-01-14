@@ -316,13 +316,17 @@ int contador = 0;
 int passo    = 0;
 bool redraw  = true;
 bool sair    = false;
-bool variante_Conway = true;
+bool variante_Conway =  false;
 bool variante_HighLife = false;
 bool statusmenu = false;
 
 const char * texto   = {"Geração: "};
-const char * fpsMark = {"FPS: "};
+const char * fpsMark = {"TickRate: "};
 const char * celulas = {"Células: "};
+const char * variante = {"Variante: "};
+
+const char * varianteConway = {"Conway's"};
+const char * varianteHighLife = {"HighLife"};
 
 int menu(){
     ALLEGRO_EVENT event;
@@ -330,6 +334,14 @@ int menu(){
     al_flip_display();
     al_wait_for_event(event_queue, &event);
     if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
+        int coordenadaX = event.mouse.x;
+        int coordenadaY = event.mouse.y;
+        if(coordenadaX<500){
+            variante_Conway = true;
+        }
+        else if(coordenadaX>500){
+            variante_HighLife = true;
+        }
         return 1;
     }
     else{
@@ -343,10 +355,24 @@ void regrasMorre(int vizinhos, bool revive[][260], int indexX,int indexY){
             revive[indexX][indexY]=true;
         }
     }
+    if(variante_HighLife == true){
+        if(vizinhos==3||vizinhos==6){
+            revive[indexX][indexY]=true;
+        }
+    }
 }
 
 void regrasVive(int vizinhos, bool morre[][260], bool vive[][260], int indexX,int indexY){
     if(variante_Conway == true){
+        if(vizinhos == 2 || vizinhos == 3){
+            morre[indexX][indexY]=false;
+            vive[indexX][indexY]=true;
+        }
+        if(vizinhos==1 || vizinhos==0){
+            morre[indexX][indexY]=true;
+        }
+    }
+    if(variante_HighLife == true){
         if(vizinhos == 2 || vizinhos == 3){
             morre[indexX][indexY]=false;
             vive[indexX][indexY]=true;
