@@ -316,7 +316,7 @@ int contador = 0;
 int passo    = 0;
 bool redraw  = true;
 bool sair    = false;
-bool variante_Conway = false;
+bool variante_Conway = true;
 bool variante_HighLife = false;
 bool statusmenu = false;
 
@@ -334,6 +334,26 @@ int menu(){
     }
     else{
         return 0;
+    }
+}
+
+void regrasMorre(int vizinhos, bool revive[][260], int indexX,int indexY){
+    if(variante_Conway == true){
+        if(vizinhos==3){
+            revive[indexX][indexY]=true;
+        }
+    }
+}
+
+void regrasVive(int vizinhos, bool morre[][260], bool vive[][260], int indexX,int indexY){
+    if(variante_Conway == true){
+        if(vizinhos == 2 || vizinhos == 3){
+            morre[indexX][indexY]=false;
+            vive[indexX][indexY]=true;
+        }
+        if(vizinhos==1 || vizinhos==0){
+            morre[indexX][indexY]=true;
+        }
     }
 }
 
