@@ -140,6 +140,10 @@ int main(int argc, char **argv){
                         *FPSPointer-=1.0;
                         al_set_timer_speed(timer, 1.0/ *FPSPointer);
                     }
+                    else{
+                        *FPSPointer-=0.2;
+                        al_set_timer_speed(timer, 1.0/ *FPSPointer);
+                    }
                     break;
                 case ALLEGRO_KEY_SPACE:
                     for(int i = 49; i<208;i++){
@@ -162,40 +166,89 @@ int main(int argc, char **argv){
         else if(ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){
             int coordenadaX = ev.mouse.x/4;
             int coordenadaY = ev.mouse.y/4;
-            int random = (rand()%4);
-            switch(random){
-                case 0:
-                    MAPA[coordenadaX][coordenadaY] = '1';
-                    MAPA[coordenadaX-1][coordenadaY] = '1';
-                    MAPA[coordenadaX+1][coordenadaY-1] = '1';
-                    MAPA[coordenadaX-1][coordenadaY+1] = '1';
-                    MAPA[coordenadaX+1][coordenadaY+1] = '1';
-                    break;
-                case 1:
-                    MAPA[coordenadaX][coordenadaY] = '1';
-                    MAPA[coordenadaX-1][coordenadaY] = '1';
-                    MAPA[coordenadaX][coordenadaY+1] = '1';
-                    break;
-                case 2:
-                    MAPA[coordenadaX][coordenadaY] = '1';
-                    MAPA[coordenadaX+1][coordenadaY] = '1';
-                    MAPA[coordenadaX-1][coordenadaY-1] = '1';
-                    break;
-                case 3:
-                    MAPA[coordenadaX][coordenadaY] = '1';
-                    MAPA[coordenadaX+1][coordenadaY] = '1';
-                    MAPA[coordenadaX-1][coordenadaY-1] = '1';
-                    MAPA[coordenadaX-1][coordenadaY] = '1';
-                    break;
-                case 4:
-                    MAPA[coordenadaX][coordenadaY] = '1';
-                    MAPA[coordenadaX+1][coordenadaY] = '1';
-                    MAPA[coordenadaX-1][coordenadaY-1] = '1';
-                    MAPA[coordenadaX-1][coordenadaY] = '1';
-                    MAPA[coordenadaX+1][coordenadaY+1] = '1';
-                    break;
+
+            if(ev.mouse.button == 1){
+                int random = (rand()%7);
+                switch(random){
+                    case 0:
+                        MAPA[coordenadaX][coordenadaY] = '1';
+                        MAPA[coordenadaX-1][coordenadaY] = '1';
+                        MAPA[coordenadaX+1][coordenadaY-1] = '1';
+                        MAPA[coordenadaX-1][coordenadaY+1] = '1';
+                        MAPA[coordenadaX+1][coordenadaY+1] = '1';
+                        break;
+                    case 1:
+                        MAPA[coordenadaX][coordenadaY] = '1';
+                        MAPA[coordenadaX-1][coordenadaY] = '1';
+                        MAPA[coordenadaX][coordenadaY+1] = '1';
+                        break;
+                    case 2:
+                        MAPA[coordenadaX][coordenadaY] = '1';
+                        MAPA[coordenadaX+1][coordenadaY] = '1';
+                        MAPA[coordenadaX-1][coordenadaY-1] = '1';
+                        break;
+                    case 3:
+                        MAPA[coordenadaX][coordenadaY] = '1';
+                        MAPA[coordenadaX+1][coordenadaY] = '1';
+                        MAPA[coordenadaX-1][coordenadaY-1] = '1';
+                        MAPA[coordenadaX-1][coordenadaY] = '1';
+                        break;
+                    case 4:
+                        MAPA[coordenadaX][coordenadaY] = '1';
+                        MAPA[coordenadaX-1][coordenadaY] = '1';
+                        MAPA[coordenadaX-2][coordenadaY] = '1';
+                        MAPA[coordenadaX-1][coordenadaY-2] = '1';
+                        MAPA[coordenadaX][coordenadaY-1] = '1';
+                        break;
+                    case 5:
+                        //quadrado
+                        MAPA[coordenadaX][coordenadaY] = '1';
+                        MAPA[coordenadaX-1][coordenadaY] = '1';
+                        MAPA[coordenadaX][coordenadaY+1] = '1';
+                        MAPA[coordenadaX-1][coordenadaY+1] = '1';
+                        //lado direito
+                        MAPA[coordenadaX+1][coordenadaY-3] = '1';
+                        MAPA[coordenadaX+1][coordenadaY-4] = '1';
+                        MAPA[coordenadaX+1][coordenadaY-5] = '1';
+                        MAPA[coordenadaX+2][coordenadaY-5] = '1';
+                        MAPA[coordenadaX+3][coordenadaY-4] = '1';
+                        MAPA[coordenadaX+3][coordenadaY-5] = '1';
+                        //lado esquerdo
+                        MAPA[coordenadaX-2][coordenadaY-3] = '1';
+                        MAPA[coordenadaX-2][coordenadaY-4] = '1';
+                        MAPA[coordenadaX-2][coordenadaY-5] = '1';
+                        MAPA[coordenadaX-3][coordenadaY-5] = '1';
+                        MAPA[coordenadaX-4][coordenadaY-4] = '1';
+                        MAPA[coordenadaX-4][coordenadaY-5] = '1';
+                        break;
+                    case 6:
+                        MAPA[coordenadaX][coordenadaY] = '1';
+                        MAPA[coordenadaX-1][coordenadaY] = '1';
+                        MAPA[coordenadaX-1][coordenadaY+1] = '1';
+                        MAPA[coordenadaX-1][coordenadaY+2] = '1';
+                        MAPA[coordenadaX-1][coordenadaY+3] = '1';
+                        MAPA[coordenadaX-1][coordenadaY+4] = '1';
+                        MAPA[coordenadaX][coordenadaY+1] = '1';
+                        MAPA[coordenadaX][coordenadaY+2] = '1';
+                        MAPA[coordenadaX][coordenadaY+3] = '1';
+                        MAPA[coordenadaX][coordenadaY+4] = '1';
+                        break;
+                    case 7:
+                        MAPA[coordenadaX][coordenadaY] = '1';
+                        MAPA[coordenadaX-1][coordenadaY] = '1';
+                        MAPA[coordenadaX-2][coordenadaY] = '1';
+                        MAPA[coordenadaX-1][coordenadaY-2] = '1';
+                        MAPA[coordenadaX][coordenadaY-1] = '1';
+                        break;
+                }
+                
             }
-            
+            if(ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && ev.mouse.button == 2){
+                MAPA[coordenadaX][coordenadaY] = '2';
+                MAPA[coordenadaX+1][coordenadaY] = '2';
+                MAPA[coordenadaX+1][coordenadaY-1] = '2';
+                MAPA[coordenadaX][coordenadaY-1] = '2';
+            }
         }
         
         else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
@@ -206,11 +259,14 @@ int main(int argc, char **argv){
             redraw = false;
             al_clear_to_color(al_map_rgb(0,0,0));
             al_draw_bitmap(mapa,0,0,0);
-            for(int l=1;l<259;l++){
-	        	for(int p=1;p<259;p++){
+            for(int l=1;l<260;l++){
+	        	for(int p=1;p<260;p++){
                     if(MAPA[l][p]=='1'){
                         contador_vivos++;
                         al_draw_bitmap(power_up, l*4, p*4, 0);
+                    }
+                    if(MAPA[l][p]=='2'){
+                        al_draw_bitmap(wall, l*4,p*4,0);
                     }
 	        	}
 	        }
