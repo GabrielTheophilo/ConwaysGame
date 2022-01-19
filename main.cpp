@@ -1,3 +1,9 @@
+/*
+    Author: Gabriel Theophilo
+    github.com/GabrielTheophilo
+    *25/12/2021*
+
+*/
 #include "conways_game.cpp"
 
 

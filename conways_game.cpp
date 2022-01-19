@@ -1,6 +1,7 @@
 /*
         Welcome to the game of life
- - Files necessary for compiling -
+
+      - Files necessary for compiling -
 Necessary(If modified)|      Included on resources folder
  ------------------------------------------------------
  Mapa                 |                        map.bmp
@@ -10,7 +11,9 @@ FLAGS NECESSARY FOR THE COMPILER/LINKER -> -lallegro -lallegro_image -lallegro_f
 
 To execute this program without spawning the command prompt(on windows), use this flag also -> -mwindows
 
+        Author: GabrielTheophilo @ github.com/GabrielTheophilo
 */
+#include <clocale>
 #include "conways_game.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
@@ -22,6 +25,8 @@ To execute this program without spawning the command prompt(on windows), use thi
 
 
 using namespace std;
+
+
 
 enum MYKEYS
 {
@@ -59,6 +64,7 @@ bool variante_HighLife = false;
 bool statusmenu = false;
 
 int menu(){
+    
     ALLEGRO_EVENT event;
     al_draw_bitmap(mainmenu,0,0,0);
     al_flip_display();

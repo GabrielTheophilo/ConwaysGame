@@ -1,3 +1,10 @@
+/*
+    Author: Gabriel Theophilo
+    github.com/GabrielTheophilo
+    *12/01/2022*
+
+*/
+
 void regrasVive(int vizinhos, bool morre[][260], bool vive[][260], int indexX,int indexY);
 void regrasMorre(int vizinhos, bool revive[][260], int indexX,int indexY);
 int inicializa();
