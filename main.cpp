@@ -174,7 +174,7 @@ int main(int argc, char **argv){
             int coordenadaY = ev.mouse.y/4;
 
             if(ev.mouse.button == 1){
-                int random = 8;//(rand()%7);
+                int random = (rand()%8);
                 switch(random){
                     case 0:
                         MAPA[coordenadaX][coordenadaY] = '1';
