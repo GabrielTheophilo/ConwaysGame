@@ -64,13 +64,100 @@ bool highres = false;
 bool statusmenu = false;
 
 
-void escreveCoordenadas(char MAPA[260][260], int coordenadaX, int coordenadaY){
-
-    MAPA[coordenadaX][coordenadaY] = '1';
-    MAPA[coordenadaX-1][coordenadaY] = '1';
-    MAPA[coordenadaX+1][coordenadaY-1] = '1';
-    MAPA[coordenadaX-1][coordenadaY+1] = '1';
-    MAPA[coordenadaX+1][coordenadaY+1] = '1';
+void escreveCoordenadas(char MAPA[260][260], int coordenadaX, int coordenadaY, int choice){
+        switch(choice){
+            case 0:
+                MAPA[coordenadaX][coordenadaY] = '1';
+                MAPA[coordenadaX-1][coordenadaY] = '1';
+                MAPA[coordenadaX+1][coordenadaY-1] = '1';
+                MAPA[coordenadaX-1][coordenadaY+1] = '1';
+                MAPA[coordenadaX+1][coordenadaY+1] = '1';
+                break;
+            case 1:
+                MAPA[coordenadaX][coordenadaY] = '1';
+                MAPA[coordenadaX-1][coordenadaY] = '1';
+                MAPA[coordenadaX][coordenadaY+1] = '1';
+                break;
+            case 2:
+                MAPA[coordenadaX][coordenadaY] = '1';
+                MAPA[coordenadaX+1][coordenadaY] = '1';
+                MAPA[coordenadaX-1][coordenadaY-1] = '1';
+                break;
+            case 3:
+                MAPA[coordenadaX][coordenadaY] = '1';
+                MAPA[coordenadaX+1][coordenadaY] = '1';
+                MAPA[coordenadaX-1][coordenadaY-1] = '1';
+                MAPA[coordenadaX-1][coordenadaY] = '1';
+                break;
+            case 4:
+                MAPA[coordenadaX][coordenadaY] = '1';
+                MAPA[coordenadaX-1][coordenadaY] = '1';
+                MAPA[coordenadaX-2][coordenadaY] = '1';
+                MAPA[coordenadaX-1][coordenadaY-2] = '1';
+                MAPA[coordenadaX][coordenadaY-1] = '1';
+                break;
+            case 5:
+                //quadrado
+                MAPA[coordenadaX][coordenadaY] = '1';
+                MAPA[coordenadaX-1][coordenadaY] = '1';
+                MAPA[coordenadaX][coordenadaY+1] = '1';
+                MAPA[coordenadaX-1][coordenadaY+1] = '1';
+                //lado direito
+                MAPA[coordenadaX+1][coordenadaY-3] = '1';
+                MAPA[coordenadaX+1][coordenadaY-4] = '1';
+                MAPA[coordenadaX+1][coordenadaY-5] = '1';
+                MAPA[coordenadaX+2][coordenadaY-5] = '1';
+                MAPA[coordenadaX+3][coordenadaY-4] = '1';
+                MAPA[coordenadaX+3][coordenadaY-5] = '1';
+                //lado esquerdo
+                MAPA[coordenadaX-2][coordenadaY-3] = '1';
+                MAPA[coordenadaX-2][coordenadaY-4] = '1';
+                MAPA[coordenadaX-2][coordenadaY-5] = '1';
+                MAPA[coordenadaX-3][coordenadaY-5] = '1';
+                MAPA[coordenadaX-4][coordenadaY-4] = '1';
+                MAPA[coordenadaX-4][coordenadaY-5] = '1';
+                break;
+            case 6:
+                MAPA[coordenadaX][coordenadaY] = '1';
+                MAPA[coordenadaX-1][coordenadaY] = '1';
+                MAPA[coordenadaX-1][coordenadaY+1] = '1';
+                MAPA[coordenadaX-1][coordenadaY+2] = '1';
+                MAPA[coordenadaX-1][coordenadaY+3] = '1';
+                MAPA[coordenadaX-1][coordenadaY+4] = '1';
+                MAPA[coordenadaX][coordenadaY+1] = '1';
+                MAPA[coordenadaX][coordenadaY+2] = '1';
+                MAPA[coordenadaX][coordenadaY+3] = '1';
+                MAPA[coordenadaX][coordenadaY+4] = '1';
+                break;
+            case 7:
+                MAPA[coordenadaX][coordenadaY] = '1';
+                MAPA[coordenadaX-1][coordenadaY] = '1';
+                MAPA[coordenadaX-2][coordenadaY] = '1';
+                MAPA[coordenadaX-1][coordenadaY-2] = '1';
+                MAPA[coordenadaX][coordenadaY-1] = '1';
+                break;
+            case 8:
+                MAPA[coordenadaX][coordenadaY-4] = MAPA[coordenadaX][coordenadaY-3] = '1';
+                MAPA[coordenadaX+1][coordenadaY-4] = MAPA[coordenadaX+1][coordenadaY-3] = '1';
+                MAPA[coordenadaX-2][coordenadaY+8] = MAPA[coordenadaX-2][coordenadaY+9] = '1';
+                MAPA[coordenadaX-1][coordenadaY+7] = MAPA[coordenadaX-1][coordenadaY+11] = '1';
+                MAPA[coordenadaX][coordenadaY+6] = MAPA[coordenadaX][coordenadaY+12] = '1';
+                MAPA[coordenadaX+1][coordenadaY+6] = MAPA[coordenadaX+1][coordenadaY+10] = MAPA[coordenadaX+1][coordenadaY+12] = MAPA[coordenadaX+1][coordenadaY+13] = '1';
+                MAPA[coordenadaX+2][coordenadaY+6] = MAPA[coordenadaX+2][coordenadaY+12] = '1';
+                MAPA[coordenadaX+3][coordenadaY+7] = MAPA[coordenadaX+3][coordenadaY+11] = '1';
+                MAPA[coordenadaX+4][coordenadaY+8] = MAPA[coordenadaX+4][coordenadaY+9] = '1';
+                MAPA[coordenadaX-4][coordenadaY+20] = '1';
+                MAPA[coordenadaX-3][coordenadaY+18] = MAPA[coordenadaX-3][coordenadaY+20] = '1';
+                MAPA[coordenadaX-2][coordenadaY+16] = MAPA[coordenadaX-2][coordenadaY+17] = '1';
+                MAPA[coordenadaX-1][coordenadaY+16] = MAPA[coordenadaX-1][coordenadaY+17] = '1';
+                MAPA[coordenadaX][coordenadaY+16] = MAPA[coordenadaX][coordenadaY+17] = '1';
+                MAPA[coordenadaX+1][coordenadaY+18] = MAPA[coordenadaX+1][coordenadaY+20] = '1';
+                MAPA[coordenadaX+2][coordenadaY+20] = '1';
+                MAPA[coordenadaX-2][coordenadaY+30] = MAPA[coordenadaX-2][coordenadaY+31] = '1';
+                MAPA[coordenadaX-1][coordenadaY+30] = MAPA[coordenadaX-1][coordenadaY+31] = '1';
+                break;
+        }
+    
 }
 
 int menu(){

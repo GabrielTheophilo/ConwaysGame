@@ -7,7 +7,7 @@
 
 void regrasVive(int vizinhos, bool morre[][260], bool vive[][260], int indexX,int indexY);
 void regrasMorre(int vizinhos, bool revive[][260], int indexX,int indexY);
-void escreveCoordenadas(char MAPA, int* coordenadaX, int* coordenadaY);
+void escreveCoordenadas(char MAPA[260][260], int* coordenadaX, int* coordenadaY, int choice);
 int inicializa();
 int desinicializa();
 
