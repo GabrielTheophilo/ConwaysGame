@@ -194,10 +194,7 @@ int main(int argc, char **argv){
                 escreveCoordenadas(MAPA,coordenadaX,coordenadaY, random);
             }
             if(ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && ev.mouse.button == 2){
-                MAPA[coordenadaX][coordenadaY] = '2';
-                MAPA[coordenadaX+1][coordenadaY] = '2';
-                MAPA[coordenadaX+1][coordenadaY-1] = '2';
-                MAPA[coordenadaX][coordenadaY-1] = '2';
+                escreveCoordenadas(MAPA,coordenadaX,coordenadaY, 16);
             }
             
         }
@@ -222,10 +219,9 @@ int main(int argc, char **argv){
                         }
                         
                     }
-                    //if(MAPA[l][p]=='2'){
-                    //    
-                    //    al_draw_bitmap(wall, l*4,p*4,0);
-                    //}
+                    if(MAPA[l][p]=='3'){
+                        al_draw_bitmap(wall, l*4,p*4,0);
+                    }
 	        	}
 	        }
             al_draw_textf(font, al_map_rgb(255,0,0),330,920, 0, texto);

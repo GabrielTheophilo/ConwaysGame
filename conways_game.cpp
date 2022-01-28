@@ -156,6 +156,12 @@ void escreveCoordenadas(char MAPA[260][260], int coordenadaX, int coordenadaY, i
                 MAPA[coordenadaX-2][coordenadaY+30] = MAPA[coordenadaX-2][coordenadaY+31] = '1';
                 MAPA[coordenadaX-1][coordenadaY+30] = MAPA[coordenadaX-1][coordenadaY+31] = '1';
                 break;
+            case 16:
+                MAPA[coordenadaX][coordenadaY] = '3';
+                MAPA[coordenadaX+1][coordenadaY] = '3';
+                MAPA[coordenadaX+1][coordenadaY-1] = '3';
+                MAPA[coordenadaX][coordenadaY-1] = '3';
+                break;
         }
     
 }
