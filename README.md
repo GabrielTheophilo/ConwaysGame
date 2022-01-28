@@ -32,7 +32,7 @@ E é assim que funciona:
 
 Como interagir com o jogo:
 
-Você pode spawnar novas células apertando a tecla ESPAÇO
+Você pode spawnar novas células apertando a tecla ESPAÇO, reiniciar e excluir todas as células apertando SETA ESQUERDA, adicionar paredes clicando com o BOTÃO DIREITO do mouse e desenhar novas células apertando o BOTÃO ESQUERDO do mouse.
 Você pode controlar a velocidade da exibição apertando a SETA PARA CIMA (Aumentar a velocidade) e a SETA PARA BAIXO (Diminuir a velocidade)
 
 
