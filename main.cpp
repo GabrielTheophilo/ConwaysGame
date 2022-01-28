@@ -167,21 +167,33 @@ int main(int argc, char **argv){
                         }
                     }
                     break;
+                //case ALLEGRO_KEY_K:
+                //    al_destroy_display(display);
+                //    SCREEN_W = 1600;
+                //    SCREEN_H = 900;
+                //    display = al_create_display(SCREEN_W, SCREEN_H);
+                //    highres = true;
+                //    break;
             }
         }
         else if(ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){
-            int coordenadaX = ev.mouse.x/4;
-            int coordenadaY = ev.mouse.y/4;
-
+            int coordenadaX = ev.mouse.x;
+            int coordenadaY = ev.mouse.y;
+            int *coordenadaUm = &ev.mouse.x;
+            int *coordenadaDois = &ev.mouse.y;
+            if(highres){
+                coordenadaX = coordenadaX/6.4;
+                coordenadaY = coordenadaY/6.4;
+            }
+            else{
+                coordenadaX = coordenadaX/4;
+                coordenadaY = coordenadaY/4;
+            }
             if(ev.mouse.button == 1){
-                int random = (rand()%8);
+                int random = 0;//(rand()%8);
                 switch(random){
                     case 0:
-                        MAPA[coordenadaX][coordenadaY] = '1';
-                        MAPA[coordenadaX-1][coordenadaY] = '1';
-                        MAPA[coordenadaX+1][coordenadaY-1] = '1';
-                        MAPA[coordenadaX-1][coordenadaY+1] = '1';
-                        MAPA[coordenadaX+1][coordenadaY+1] = '1';
+                        escreveCoordenadas(MAPA, coordenadaX, coordenadaY);
                         break;
                     case 1:
                         MAPA[coordenadaX][coordenadaY] = '1';
@@ -278,6 +290,7 @@ int main(int argc, char **argv){
                 MAPA[coordenadaX+1][coordenadaY-1] = '2';
                 MAPA[coordenadaX][coordenadaY-1] = '2';
             }
+            
         }
         
         else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
@@ -292,11 +305,18 @@ int main(int argc, char **argv){
 	        	for(int p=1;p<260;p++){
                     if(MAPA[l][p]=='1'){
                         contador_vivos++;
-                        al_draw_bitmap(power_up, l*4, p*4, 0);
+                        if(!highres){
+                            al_draw_bitmap(power_up, l*4, p*4, 0);
+                        }
+                        else{
+                            al_draw_bitmap(power_up, l*2, p*2, 0);
+                        }
+                        
                     }
-                    if(MAPA[l][p]=='2'){
-                        al_draw_bitmap(wall, l*4,p*4,0);
-                    }
+                    //if(MAPA[l][p]=='2'){
+                    //    
+                    //    al_draw_bitmap(wall, l*4,p*4,0);
+                    //}
 	        	}
 	        }
             al_draw_textf(font, al_map_rgb(255,0,0),330,920, 0, texto);

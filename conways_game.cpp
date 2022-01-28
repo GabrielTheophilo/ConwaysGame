@@ -60,8 +60,18 @@ bool redraw  = true;
 bool sair    = false;
 bool variante_Conway =  false;
 bool variante_HighLife = false;
-
+bool highres = false;
 bool statusmenu = false;
+
+
+void escreveCoordenadas(char MAPA[260][260], int coordenadaX, int coordenadaY){
+
+    MAPA[coordenadaX][coordenadaY] = '1';
+    MAPA[coordenadaX-1][coordenadaY] = '1';
+    MAPA[coordenadaX+1][coordenadaY-1] = '1';
+    MAPA[coordenadaX-1][coordenadaY+1] = '1';
+    MAPA[coordenadaX+1][coordenadaY+1] = '1';
+}
 
 int menu(){
     
