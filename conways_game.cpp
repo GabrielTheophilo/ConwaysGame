@@ -13,7 +13,7 @@ To execute this program without spawning the command prompt(on windows), use thi
 
         Author: GabrielTheophilo @ github.com/GabrielTheophilo
 */
-#include <clocale>
+//#include <clocale>
 #include "conways_game.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
@@ -255,19 +255,19 @@ int inicializa(){
         return 0;
     }
 
-    mainmenu = al_load_bitmap("recursos/conways_menu.bmp");
+    mainmenu = al_load_bitmap("resources/conways_menu.bmp");
     if(!mainmenu){
         cout << "Falha ao carregar o menu!" << endl;
         return 0;
     }
 
-    wall = al_load_bitmap("recursos/wall.bmp");
+    wall = al_load_bitmap("resources/wall.bmp");
     if(!wall){
         cout << "Falha ao carregar a parede!" << endl;
         return 0;
     }
 
-    mapa = al_load_bitmap("recursos/map.bmp");
+    mapa = al_load_bitmap("resources/map.bmp");
     if(!mapa){
         cout << "Falha ao carregar o mapa!" << endl;
         al_destroy_display(display);
@@ -275,7 +275,7 @@ int inicializa(){
     }
     al_draw_bitmap(mapa,0,0,0);
 
-    power_up = al_load_bitmap("recursos/cell.bmp");
+    power_up = al_load_bitmap("resources/cell.bmp");
     if(!power_up){
         cout << "Falha ao carregar o power_up" << endl;
         al_destroy_display(display);
@@ -292,7 +292,7 @@ int inicializa(){
 
     al_init_font_addon();    
     al_init_ttf_addon();    
-    font = al_load_ttf_font("recursos/VT323-Regular.ttf", 26, 0);  
+    font = al_load_ttf_font("resources/VT323-Regular.ttf", 26, 0);  
     
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
