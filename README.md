@@ -61,11 +61,11 @@ gcc -o conwaysgame.exe conways_game.cpp -lallegro -lallegro_image -lallegro_font
 6. Se houver problema na execução, coloque na mesma pasta do executável as DLL's que estão incluídas no download da biblioteca allegro > libstdc++-6.dll, libwinpthread-1.dll e libgcc_s_seh-1
 
 **TO DO's**:
-1. Editar a fonte
+1. ~~Editar a fonte~~
 2. Criar um makefile
-3. Adicionar menu inicial
+3. ~~Adicionar menu inicial~~
 4. Modularizar os sprites e regras em objetos
-5. Integrar todas as variantes num programa só, após criar o menu
+5. Integrar todas as variantes num programa só, após criar o menu -  50% DONE
 
 **Screenshots**
 ![Conway's](https://i.imgur.com/GYDB4mp.png)
