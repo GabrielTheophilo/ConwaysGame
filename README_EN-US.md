@@ -62,7 +62,7 @@ gcc -o conwaysgame.exe conways_game.cpp -lallegro -lallegro_image -lallegro_font
 6. If you have any problems with executing, transfer the DLL's from the Allegro5 folder to where the executable is > libstdc++-6.dll, libwinpthread-1.dll e libgcc_s_seh-1
 
 **TO DO's**:
-1.~~Edit the game's font~~
+1. ~~Edit the game's font~~
 2. Create a makefile
 3. ~~Add a main menu~~
 4. Make the project more modular (more OOP oriented)
