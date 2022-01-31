@@ -65,7 +65,7 @@ gcc -o conwaysgame.exe conways_game.cpp -lallegro -lallegro_image -lallegro_font
 2. Criar um makefile
 3. ~~Adicionar menu inicial~~
 4. Modularizar os sprites e regras em objetos
-5. Integrar todas as variantes num programa só, após criar o menu -  50% DONE
+5. Integrar todas as variantes num programa só, após criar o menu -  50% FEITO
 
 **Screenshots**
 ![Conway's](https://i.imgur.com/GYDB4mp.png)
