@@ -1,0 +1,5 @@
+.vscode/
+.release/
+*.dll
+*.exe
+*.zip

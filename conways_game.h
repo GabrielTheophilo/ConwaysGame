@@ -11,20 +11,9 @@ void escreveCoordenadas(char MAPA[260][260], int* coordenadaX, int* coordenadaY,
 int inicializa();
 int desinicializa();
 
-
 const char *texto   = {"Geração: "};
 const char *fpsMark = {"TickRate: "};
 const char *celulas = {"Células: "};
 const char *variante = {"Variante: "};
 const char *varianteConway = {"Conway's"};
 const char *varianteHighLife = {"HighLife"};
-
-
-
-
-
-
-
-
-
-
