@@ -15,6 +15,7 @@ int main(int argc, char **argv){
     bool revivenaprox[260][260] = {false};
     int contador_vivos = 0;
     
+    
     int geracao = -1;
 
     srand(time(NULL));

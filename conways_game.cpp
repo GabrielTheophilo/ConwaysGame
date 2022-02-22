@@ -63,6 +63,8 @@ bool variante_HighLife = false;
 bool highres = false;
 bool statusmenu = false;
 
+char MAPA[260][260];
+
 
 void escreveCoordenadas(char MAPA[260][260], int coordenadaX, int coordenadaY, int choice){
         switch(choice){
@@ -222,7 +224,16 @@ void regrasVive(int vizinhos, bool morre[][260], bool vive[][260], int indexX,in
     }
 }
 
+int encheMatriz(char MAPA[260][260]){
+    for(int i=0; i<259;i++){
+        for(int j=0; j<259;j++){
+            MAPA[i][j] = '0';
+        }
+    }
+}
+
 int inicializa(){
+    encheMatriz(MAPA);
     if(!al_init()){
         cout << "Falha ao carregar Allegro" << endl;
         return 0;
