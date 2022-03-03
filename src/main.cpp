@@ -25,6 +25,7 @@ int main(int argc, char **argv){
     while(!sair){
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_queue, &ev);
+        Regras Regras;
 
         if(ev.type == ALLEGRO_EVENT_TIMER)
         {
@@ -78,7 +79,7 @@ int main(int argc, char **argv){
                                         vizinhos++;
                                     }
                                     // b3
-                                    regrasMorre(vizinhos, revive, i, j);
+                                    Regras.regrasMorre(vizinhos, revive, i, j);
                                     vizinhos = 0;
                         }
                         if(MAPA[i][j]=='1'){
@@ -112,7 +113,7 @@ int main(int argc, char **argv){
                                     vive[i][j]=false;
                                 }
                                 //s23
-                                regrasVive(vizinhos,morre,vive,i,j);
+                                Regras.regrasVive(vizinhos,morre,vive,i,j);
                                 vizinhos = 0;
                             }
                         }
@@ -192,10 +193,10 @@ int main(int argc, char **argv){
             }
             if(ev.mouse.button == 1){
                 int random = (rand()%8);
-                escreveCoordenadas(MAPA,coordenadaX,coordenadaY, random);
+                Regras.escreveCoordenadas(MAPA,coordenadaX,coordenadaY, random);
             }
             if(ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && ev.mouse.button == 2){
-                escreveCoordenadas(MAPA,coordenadaX,coordenadaY, 16);
+                Regras.escreveCoordenadas(MAPA,coordenadaX,coordenadaY, 16);
             }
             
         }
