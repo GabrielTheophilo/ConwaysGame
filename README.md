@@ -1,26 +1,29 @@
+<div align="center">
 <h1 align="center"><a href="https://pt.wikipedia.org/wiki/Jogo_da_vida">Conway's Game of Life 🚀</a></h1>
-<img src="https://i.imgur.com/cw42u24.png"/>
+<img  src="https://i.imgur.com/cw42u24.png" width="720px"/>
 <h2 align="center" style="text-align: justify;">Hey, if you are looking for the README in ENGLISH, please visit the <a href="https://github.com/GabrielTheophilo/ConwaysGame/blob/main/README_EN-US.md">README_EN-US.md </a>file, it has all the information you need. Have a great day</h2>
-
+</div>
 
 
 <h4 align="center">O jogo da vida de Conway (Conway's Game of Life) é um jogo simples que captura a imaginação de milhares de pessoas desde a década de 70, quando foi inventado pelo matemático britânico John Horton Conway. O jogo representa um autômato celular, e foi criado para reproduzir, através de regras simples, as alterações e mudanças em grupos de seres vivos. A cada geração do jogo, as regras são aplicadas e determinam a vida e morte das células. O jogo evolui em "gerações", onde em cada uma a regra é aplicada, e o tabuleiro com as células se modifica, as vezes surgindo padrões explosivos, ou caóticos, ou até estáveis. O jogo pode contar com as regras clássicas(explicadas com mais detalhes abaixo) ou com variações que exacerbam certos aspectos da geração e destruição das células, e, a partir disso, surgem padrões interessantes na organização celular.</h4>
 
-![Print](https://i.imgur.com/f0Zpsrh.png)
-![Print](https://i.imgur.com/WiwWx3g.png)
-![Print](https://i.imgur.com/JbQrbwK.png)
-![Print](https://i.imgur.com/99r3LdX.png)
-![Print](https://i.imgur.com/6Wh4Osj.png)
-![Print](https://i.imgur.com/c13JW0P.png)
-![Print](https://i.imgur.com/d5AsvU4.png)
-![Print](https://i.imgur.com/kAXiXqk.png)
-![Print](https://i.imgur.com/iiew6CL.png)
-![Print](https://i.imgur.com/VBgzvHA.png)
-![Print](https://i.imgur.com/rK4Kt4G.png)
-![Print](https://i.imgur.com/uPcmzK8.png)
-![Print](https://i.imgur.com/pw9oe9w.png)
-
-
+<div align="center">
+<img src="https://i.imgur.com/f0Zpsrh.png" />
+<img src="https://i.imgur.com/WiwWx3g.png" />
+<img src="https://i.imgur.com/JbQrbwK.png" />
+<img src="https://i.imgur.com/99r3LdX.png" />
+<img src="https://i.imgur.com/6Wh4Osj.png" />
+<img src="https://i.imgur.com/c13JW0P.png" />
+<img src="https://i.imgur.com/d5AsvU4.png" />
+<img src="https://i.imgur.com/kAXiXqk.png" />
+<img src="https://i.imgur.com/iiew6CL.png" />
+<img src="https://i.imgur.com/VBgzvHA.png" />
+<img src="https://i.imgur.com/rK4Kt4G.png" />
+<img src="https://i.imgur.com/uPcmzK8.png" />
+<img src="https://i.imgur.com/pw9oe9w.png" />
+</div>
+  
+  
 <h4 align="center">Sua proposta é simples: O jogo não é jogado por um jogador. O espaço entre a tela do seu computador e a cadeira compreende o lugar do observador deste jogo. Um tabuleiro, uma malha, ou um cenário é colocado na tela, e a partir dela sorteamos aleatóriamente onde os habitantes desse pequeno universo vão nascer.
 Eles, assim como nós, são seres sociais, e não gostam nem um pouco de solidão. Porém, se a vizinhança começa a ficar muito lotada... bom... digamos que eles resolvam partir dali.</h4>
 <h4>E é assim que funciona:</h4>
@@ -71,5 +74,6 @@ gcc -o conwaysgame.exe conways_game.cpp -lallegro -lallegro_image -lallegro_font
 4. Modularizar os sprites e regras em objetos
 5. Integrar todas as variantes num programa só, após criar o menu -  50% FEITO
 
-**Screenshots**
-![Conway's](https://i.imgur.com/GYDB4mp.png)
+<div align="center">
+<img src="https://i.imgur.com/GYDB4mp.png" width="720px" />
+  </div>
