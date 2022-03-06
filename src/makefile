@@ -1,5 +1,6 @@
 CC=g++
 CFLAGS=
+DELETAVEIS=main.o conwaysgame.o allegro.o a.exe
 CPFLAGS=-lallegro -lallegro_image -lallegro_font -lallegro_ttf
 
 all: main
@@ -18,3 +19,6 @@ conwaysgame.o: conways_game.h conways_game.cpp
 
 allegro.o: allegro.h
 		${CC} ${CFLAGS} -c allegro.h
+
+clean:
+		-del ${DELETAVEIS}
